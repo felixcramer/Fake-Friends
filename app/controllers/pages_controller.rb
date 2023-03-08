@@ -12,6 +12,11 @@ class PagesController < ApplicationController
 
   def post_form
     @room = Room.find_by(room_code: params[:user][:name])
-    redirect_to room_path(@room)
+
+    if @room == nil
+      redirect_to enter_room_path
+    else
+      redirect_to room_path(@room)
+    end
   end
 end
