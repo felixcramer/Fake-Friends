@@ -6,6 +6,13 @@ class User < ApplicationRecord
 
   has_many :rooms, dependent: :destroy
   has_one_attached :photo
+  before_destroy :purge_photo
 
   validates :username, presence: true, uniqueness: true
+  
+  private
+
+  def purge_photo
+    photo.purge
+  end
 end
