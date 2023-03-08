@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_094317) do
   create_table "questions", force: :cascade do |t|
     t.string "content"
     t.integer "round"
-    t.bigint "room_id", null: false
+    t.bigint "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_questions_on_room_id"

@@ -79,5 +79,7 @@ end
 
 gem "devise"
 
+
 # Added GEMS
 gem "cloudinary"
+gem "faker"
