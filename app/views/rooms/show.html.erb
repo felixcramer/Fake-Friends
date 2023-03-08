@@ -1,1 +1,6 @@
-<h1>Hello World</h1>
+<h1>Room name: <%= @room.name %></h1>
+<h2>Your room code: <%= @room.room_code %></h2>
+
+<p>waiting for users to connect...</p>
+
+<%= link_to "Start game", room_question_path(@room, @room.question.first), class: "btn btn-primary" %>
