@@ -78,3 +78,6 @@ group :test do
 end
 
 gem "devise"
+
+# Added GEMS
+gem "cloudinary"
