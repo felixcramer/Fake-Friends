@@ -11,6 +11,10 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params)
     @user = current_user
     @room.user = @user
+    @questions  = Question.all
+    @questions.each do |question|
+      question.room = @room
+    end
     if @room.save
       redirect_to room_path(@room)
     else
