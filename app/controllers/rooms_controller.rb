@@ -15,6 +15,7 @@ class RoomsController < ApplicationController
     @questions.each do |question|
       question.room = @room
     end
+    @room.room_code = 4.times.map{rand(10)}.join
     if @room.save
       redirect_to room_path(@room)
     else

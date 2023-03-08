@@ -1,1 +1,5 @@
-<% raise %>
+<h2><%= @question.content %></h2>
+
+<% @question.answer.each do |answer| %>
+  <p> <%= answer.content %> </p>
+<% end %>
