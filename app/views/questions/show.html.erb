@@ -14,7 +14,8 @@
   <% end %>
 <% end %>
 
-<div>
 
-<%= submit_tag("Submit") %>
-</div>
+<%= simple_form_for [@user, @user_answer] do |f| %>
+  <%= f.input :answer_id %>
+  <%= f.submit "Submit answer", class: "btn btn-primary" %>
+<% end %>
