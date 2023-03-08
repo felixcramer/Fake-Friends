@@ -1,0 +1,21 @@
+.ff-title {
+  text-align: center;
+  font-size: 3.8em;
+  padding-top: 150px;
+  animation: backInRight;
+  animation-duration: 1s;
+}
+
+.absolute-from-bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 45%;
+  width: 100%;
+}
+
+.flex-btn-landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

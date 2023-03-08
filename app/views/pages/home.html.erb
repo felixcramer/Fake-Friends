@@ -1,15 +1,16 @@
-<h1>Welcome to fakefriends</h1>
+<h1 class="ff-title">FakeFriends</h1>
+<div class="absolute-from-bottom">
+  <div class="flex-btn-landing">
+    <%= link_to new_room_path, class: "ff-btn-red" do %>
+      <p>Host a game</p>
+    <% end %>
 
-<div class="flex-btn-landing">
-  <%= link_to new_room_path, class: "ff-btn" do %>
-    <p>Host a game</p>
-  <% end %>
+    <%= link_to enter_room_path, class: "ff-btn-red" do %>
+      <p>Join a game</p>
+    <% end %>
 
-<%= link_to enter_room_path, class: "ff-btn" do %>
-  <p>Join a game</p>
-<% end %>
-
-  <%= link_to informations_path, class: "ff-btn" do %>
-    <p>How to play</p>
-  <% end %>
+    <%= link_to informations_path, class: "ff-btn-white" do %>
+      <p>How to play</p>
+    <% end %>
+  </div>
 </div>

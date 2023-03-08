@@ -1,9 +1,17 @@
-<<%= link_to 'BACK', root_path %>
 
-<h1 class="animate__animated animate__bounce header">How to Play:</h1>
 
-<p class="ff-font-color">In FakeFriends, you’ll discover who your real friends are. Wait for your
-host to start the game, and then answer some questions about yourself.</p>
+<h1 class="ff-title-info
+           animate__animated
+           animate__bounce header">How to Play:</h1>
 
-<p class="ff-font-color">Then, you’ll see how well you know your friends... see if you can guess their
-answers, and find out the Fake Friend!</p>
+<div class="text-container">
+  <p>In FakeFriends, you’ll discover who your real friends are. Wait for your
+  host to start the game, and then answer some questions about yourself.</p>
+
+  <p>Then, you’ll see how well you know your friends... see if you can guess their
+  answers, and find out the Fake Friend!</p>
+</div>
+
+<div class="flex-back-link">
+  <%= link_to '<< BACK', root_path, class: 'back-link' %>
+</div>
