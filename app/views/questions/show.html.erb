@@ -1,5 +1,17 @@
 <h2><%= @question.content %></h2>
+<% answer_v = "" %>
+<% counter = 1 %>
 
-<% @question.answer.each do |answer| %>
-  <p> <%= answer.content %> </p>
+<% while counter < 4 %>
+  <% @question.answer.each do |answer| %>
+    <% answer_v = answer.content %> </p>
+      <%= check_box_tag(:question) %>
+        <%= label_tag(:question, "#{answer_v}") %>
+          <% counter += 1 %>
+  <% end %>
 <% end %>
+
+<div>
+
+<%= submit_tag("Submit") %>
+</div>
