@@ -1,0 +1,6 @@
+<h2>Join Room</h2>
+
+<%= simple_form_for :user, url: post_form_path do |f| %>
+  <%= f.input :name, label: false, placeholder: "Enter room code...", input_html: { value: nil } %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

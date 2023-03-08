@@ -3,4 +3,12 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def enter_room
+  end
+
+  def post_form
+    @room = Room.find_by(room_code: params[:user][:name])
+    redirect_to room_path(@room)
+  end
 end
