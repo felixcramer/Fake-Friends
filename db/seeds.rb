@@ -5,3 +5,70 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require "faker"
+
+puts "cleaning up the database"
+
+User.destroy_all
+Room.destroy_all
+Question.destroy_all
+
+puts "creating six fake users"
+6.times do 
+  user = User.new(
+    username: Faker::Name.name.to_s,
+    email: Faker::Internet.email.to_s,
+    password: Faker::Internet.password.to_s
+  )
+  user.save!
+end
+puts "#{User.count} users were created."
+puts "..."
+puts "creating the 3 main questions with 4 answers each"
+
+first_question = Question.create(content: "What kind of weather do you prefer", round: 1)
+first_answer = Answer.new(content: "Endless Rain")
+first_answer.question = first_question
+first_answer.save!
+second_answer = Answer.new(content: "Boiling Heat")
+second_answer.question = first_question
+second_answer.save!
+third_answer = Answer.new(content: "Freezing Cold")
+third_answer.question = first_question
+third_answer.save!
+fourth_answer = Answer.new(content: "Horrible Humidity")
+fourth_answer.question = first_question
+fourth_answer.save!
+
+second_question = Question.create(content: "What is your favorite color?", round: 1)
+first_answer = Answer.new(content: "Red")
+first_answer.question = second_question
+first_answer.save!
+second_answer = Answer.new(content: "Blue")
+second_answer.question = second_question
+second_answer.save!
+third_answer = Answer.new(content: "Green")
+third_answer.question = second_question
+third_answer.save!
+fourth_answer = Answer.new(content: "Yellow")
+fourth_answer.question = second_question
+fourth_answer.save!
+
+third_question = Question.create(content: "What is your favorite animal?", round: 1)
+first_answer = Answer.new(content: "Elefant")
+first_answer.question = third_question
+first_answer.save!
+second_answer = Answer.new(content: "Crocodile")
+second_answer.question = third_question
+second_answer.save!
+third_answer = Answer.new(content: "Cat")
+third_answer.question = third_question
+third_answer.save!
+fourth_answer = Answer.new(content: "Pig")
+fourth_answer.question = third_question
+fourth_answer.save!
+
+puts "All done!"
+puts "#{Question.count} questions were created. #{Answer.count} were created and are attached to those questions, 4 for question"
+puts "Good luck with the project!"
