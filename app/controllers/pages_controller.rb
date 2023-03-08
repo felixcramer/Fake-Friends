@@ -16,6 +16,10 @@ class PagesController < ApplicationController
     if @room == nil
       redirect_to enter_room_path
     else
+      @room_user = RoomUser.new
+      @room_user.room = @room
+      @room_user.user = current_user
+      @room_user.save
       redirect_to room_path(@room)
     end
   end
