@@ -83,3 +83,4 @@ gem "devise"
 # Added GEMS
 gem "cloudinary"
 gem "faker"
+gem "uri"

@@ -7,12 +7,17 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require "faker"
+require "uri"
+
+
 
 puts "cleaning up the database"
 
 User.destroy_all
 Room.destroy_all
 Question.destroy_all
+
+
 
 puts "creating six fake users"
 6.times do 
@@ -21,6 +26,8 @@ puts "creating six fake users"
     email: Faker::Internet.email.to_s,
     password: Faker::Internet.password.to_s
   )
+  file = URI.open("https://res.cloudinary.com/dzotx5j9x/image/upload/v1678275332/development/qk3v9cmx5y49f391uh2jwrn26sbb.jpg")
+  user.photo.attach(io: file, filename: "file_name")
   user.save!
 end
 puts "#{User.count} users were created."
