@@ -1,3 +1,4 @@
+<div data-controller="change-page" data-change-page-question-count-value="">
 <h2><%= @room_question.question.content %></h2>
 
 <% @room_question.question.answers.each do |answer| %>
@@ -5,3 +6,5 @@
 <% end %>
 
 <p data-controller="change-number" data-change-number-target="number">10</p>
+</div>
+ 
