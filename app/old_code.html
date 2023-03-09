@@ -43,3 +43,12 @@ show.html
 
 <%= render "shared/second_round" %>
 >>>>>>> master
+
+
+
+show
+
+<% @question.answers.each do |answer| %>
+<%= f.label :answer %>
+<%= f.input_field :answer, collection: [answer], label_method: :content, as: :radio_buttons, class: 'checkbox-style' %>
+<% end %>

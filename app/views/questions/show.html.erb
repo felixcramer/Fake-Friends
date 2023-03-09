@@ -1,27 +1,8 @@
 <h2><%= @question.content %></h2>
-<% answer_v = "" %>
 <% counter = 0 %>
-<% counter2 = 1 %>
+<% new_array = [] %>
 
-<% while counter < 4 %>
-  <% @question.answers.each do |answer| %>
-    <% answer_v = answer.content %> </p>
-
-      <input class="checkbox-style" type="checkbox" id=answer >
-      <label for="answer" > <%= answer_v %> </label>
-
-          <% counter += 1 %>
-  <% end %>
+<%= simple_form_for @user_answer do |f| %>
+  <%= f.association :answer, collection: @question.answers, label_method: :content, as: :radio_buttons, input_html: { class: 'checkbox-style'} %>
+  <%= f.button :submit, class: 'white' %>
 <% end %>
-
-
-
-<%= simple_form_for [@answer, @user_answer] do |f| %>
-  <%= f.input :answer %>
-  <%= f.button :submit %>
-<% end %>
-<% @question.answer.each do |answer| %>
-  <p> <%= answer.content %> </p>
-<% end %>
-
-<%= render "shared/second_round" %>
