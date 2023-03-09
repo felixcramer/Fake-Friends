@@ -6,3 +6,5 @@
 <% if current_user == @room.user %>
   <%= link_to "Start game", room_question_path(@room, @room.questions.first), class: "btn btn-primary" %>
 <% end %>
+
+<% raise %>

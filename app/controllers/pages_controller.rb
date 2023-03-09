@@ -14,6 +14,7 @@ class PagesController < ApplicationController
     @room = Room.find_by(room_code: params[:user][:name])
 
     if @room == nil
+      flash[:alert] = "No rooms available for that room code!"
       redirect_to enter_room_path
     else
       @room_user = RoomUser.new
