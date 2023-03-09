@@ -2,8 +2,8 @@ class Room < ApplicationRecord
   MAX_ROOM_USERS_IN_ROOM = 8
 
   belongs_to :user
-  has_many :questions, dependent: :destroy
   has_many :room_questions, dependent: :destroy
+  has_many :questions, through: :room_questions
   has_many :room_users, before_add: :check_room_users_limit
   has_many :users, through: :room_users
 
