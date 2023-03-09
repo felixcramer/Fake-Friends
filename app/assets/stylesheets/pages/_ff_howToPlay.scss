@@ -1,31 +1,8 @@
-.ff-title-info {
-  text-align: center;
-  font-size: 3em;
-  padding-top: 150px;
-  animation: backInRight;
-  animation-duration: 1s;
-}
-
 .text-container {
-  margin: 60px 50px 0px 50px;
+  margin-top: 60px;
 
   p {
     font-size: 1.2em;
     text-align: justify;
   }
-}
-
-.flex-back-link {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 10%;
-  width: 100%;
-
-}
-
-.back-link {
-  color: $blue;
 }

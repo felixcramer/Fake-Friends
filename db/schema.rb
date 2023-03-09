@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_131441) do
     t.bigint "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "room_question_id", null: false
+    t.bigint "room_question_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["room_question_id"], name: "index_answers_on_room_question_id"
   end
