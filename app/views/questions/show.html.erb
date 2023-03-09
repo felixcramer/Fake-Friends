@@ -20,3 +20,8 @@
   <%= f.input :answer %>
   <%= f.button :submit %>
 <% end %>
+<% @question.answer.each do |answer| %>
+  <p> <%= answer.content %> </p>
+<% end %>
+
+<%= render "shared/second_round" %>
