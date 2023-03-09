@@ -1,0 +1,7 @@
+<h2><%= @room_question.question.content %></h2>
+
+<% @room_question.question.answers.each do |answer| %>
+  <p> <%= answer.content %> </p>
+<% end %>
+
+<%= render "shared/second_round" %>
