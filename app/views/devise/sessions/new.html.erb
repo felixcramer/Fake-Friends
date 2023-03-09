@@ -1,5 +1,5 @@
 <div class="ff-container">
-  <h2 class="devise-header">Log in</h2>
+  <h2 class="devise-header">Welcome</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
@@ -14,9 +14,13 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Log in", class: "ff-button-text-white" %>
+      <%= f.button :submit, "Login", class: "ff-button-text-white" %>
     </div>
   <% end %>
+
+  <div class="flex-back-link">
+    <%= link_to "<< BACK", root_path %>
+  </div>
 
   <%= render "devise/shared/links" %>
 </div>
