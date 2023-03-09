@@ -2,7 +2,7 @@
 <h2>Your room code: <%= @room.room_code %></h2>
 
 <p>waiting for users to connect...</p>
-
 <% if current_user == @room.user %>
   <%= link_to "Start game", room_question_path(@room, @room.questions.first), class: "btn btn-primary" %>
 <% end %>
+<%= raise %>

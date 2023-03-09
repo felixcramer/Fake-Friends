@@ -1,6 +1,13 @@
-<h2>Join Room</h2>
+<div class="ff-container">
 
-<%= simple_form_for :user, url: post_form_path do |f| %>
-  <%= f.input :name, label: false, placeholder: "Enter room code...", input_html: { value: nil } %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>
+  <h2 class="ff-title-medium">Join Room</h2>
+
+  <%= simple_form_for :user, url: post_form_path do |f| %>
+    <%= f.input :name, label: false, placeholder: "Enter room code...", input_html: { value: nil } %>
+    <%= f.submit "Submit", class: "ff-btn-form-red" %>
+  <% end %>
+
+  <div class="flex-back-link">
+      <%= link_to "<< BACK", root_path %>
+  </div>
+</div>
