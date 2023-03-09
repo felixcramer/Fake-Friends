@@ -1,10 +1,11 @@
-<div data-controller="change-page" data-change-page-question-count-value="">
+<div data-controller="change-page"
+    data-change-page-question-count-value="<%=@array_of_urls%>"
+    data-change-page-url-value="<%=enter_room_path%>">
 <h2><%= @room_question.question.content %></h2>
 
 <% @room_question.question.answers.each do |answer| %>
   <p> <%= answer.content %> </p>
 <% end %>
 
-<p data-controller="change-number" data-change-number-target="number">10</p>
+<p data-controller="change-number" data-change-number-target="number">5</p>
 </div>
- 
