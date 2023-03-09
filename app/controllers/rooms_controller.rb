@@ -14,7 +14,7 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     @room.user = current_user
-    @questions = Question.where(round: 1)
+    @questions = Question.all
     @questions.each do |question|
       @room_question = RoomQuestion.new
       @room_question.question = question
