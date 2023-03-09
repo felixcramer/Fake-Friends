@@ -1,3 +1,21 @@
 .player-avatar {
   width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.grid-avatars {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15px;
+}
+
+.avatar-position {
+  padding-top: 100px;
+  margin: 0px 20px 0px 20px;
+}
+
+.start-btn-pos {
+  position: relative;
+  bottom: 0px;
 }

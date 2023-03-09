@@ -15,7 +15,14 @@ a {
   text-decoration: none;
 }
 
-li {}
+li {
+  list-style: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
 
 .grid-2-col {
   display: grid;
