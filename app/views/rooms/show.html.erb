@@ -3,6 +3,5 @@
 
 <p>waiting for users to connect...</p>
 <% if current_user == @room.user %>
-  <%= link_to "Start game", room_question_path(@room, @room.questions.first), class: "btn btn-primary" %>
+  <%= link_to "Start game",  room_room_question_path(@room, @room.room_questions.first), class: "btn btn-primary" %>
 <% end %>
-<%= raise %>
