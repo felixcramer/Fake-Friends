@@ -4,7 +4,16 @@
 }
 
 body {
-  font-family: $body-font;
+  height: 100vh;
+  position: relative;
+}
+
+.ff-background {
+  background: asset_url("ff_back.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+
 }
 
 a {
