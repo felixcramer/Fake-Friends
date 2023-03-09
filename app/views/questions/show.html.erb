@@ -1,27 +1,18 @@
 
 
-
+<div class="card text-center">
 <h2><%= @question.content %></h2>
+</div>
 <% answer_v = "" %>
 <% counter = 1 %>
+<% counter2 = 1 %>
 
 <% while counter < 4 %>
   <% @question.answers.each do |answer| %>
     <% answer_v = answer.content %> </p>
-      <%= check_box_tag(:question) %>
-        <%= label_tag(:question, "#{answer_v}") %>
+    <div class="card text-center">
+      <a class="btn btn-primary" href="#" role="button"><%= answer_v %></a>
           <% counter += 1 %>
+    </div>
   <% end %>
-<% end %>
-
-
-
-<% collection = [] %>
-<% @question.answers.each do |answer| %>
-<% collection << answer.content %>
-<% end %>
-
-<%= simple_form_for [@user, @user_answer] do |f| %>
-  <%= f.input :answer, as: :check_boxes, collection: collection, include_hidden: false %>
-  <%= f.button :submit %>
 <% end %>
