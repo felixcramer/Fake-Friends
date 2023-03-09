@@ -8,17 +8,19 @@
 <% end %>
 
 <ul>
-    <% @room.room_users.each do |room_user| %>
-      <% user = User.find(room_user[:user_id]) %>
-      <% if user.photo.present? %>
-      <li>
-        <%= cl_image_tag user.photo.key, class:"player-avatar", alt:"player-img" %>
-      </li>
-      <% else %>
-      <li>
-        <img src="https://images.unsplash.com/photo-1633984726552-3ed7296dc5c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img" alt="Spaceship-img">
-      </li>
+    <div data="data-contoller: player-avatars">
+      <% @room.room_users.each do |room_user| %>
+        <% user = User.find(room_user[:user_id]) %>
+        <% if user.photo.present? %>
+        <li>
+          <%= cl_image_tag user.photo.key, class:"player-avatar", alt:"player-img" %>
+        </li>
+        <% else %>
+        <li>
+          <img src="https://images.unsplash.com/photo-1633984726552-3ed7296dc5c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img" alt="Spaceship-img">
+        </li>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
 
 </ul>
