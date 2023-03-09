@@ -6,7 +6,7 @@
 <% counter = 1 %>
 
 <% while counter < 4 %>
-  <% @question.answer.each do |answer| %>
+  <% @question.answers.each do |answer| %>
     <% answer_v = answer.content %> </p>
       <%= check_box_tag(:question) %>
         <%= label_tag(:question, "#{answer_v}") %>
@@ -15,7 +15,13 @@
 <% end %>
 
 
+
+<% collection = [] %>
+<% @question.answers.each do |answer| %>
+<% collection << answer.content %>
+<% end %>
+
 <%= simple_form_for [@user, @user_answer] do |f| %>
-  <%= f.input :answer_id %>
-  <%= f.submit "Submit answer", class: "btn btn-primary" %>
+  <%= f.input :answer, as: :check_boxes, collection: collection, include_hidden: false %>
+  <%= f.button :submit %>
 <% end %>

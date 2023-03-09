@@ -1,6 +1,7 @@
 class UserAnswersController < ApplicationController
   def create
-    @done_answer = @user_answer
-    @done_answer.save
+    new_answer = UserAnswer.new(user: current_user, answer: params[])
+    raise
+    new_answer.save
   end
 end
