@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   resources :user_answers, only: [:create]
 
   resources :rooms, only: %i[index show new create] do
-    resources :questions, only: [:show]
+    resources :room_questions, only: [:show]
   end
 end

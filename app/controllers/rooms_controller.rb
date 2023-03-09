@@ -13,15 +13,20 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(room_params)
-    @user = current_user
-    @room.user = @user
+    @room.user = current_user
     @questions = Question.all
     @questions.each do |question|
-      question.room = @room
-      question.save
+      @room_question = RoomQuestion.new
+      @room_question.question = question
+      @room_question.room = @room
+      @room_question.save
     end
     @room.room_code = 4.times.map{rand(10)}.join
     if @room.save
+      @room_user = RoomUser.new
+      @room_user.room = @room
+      @room_user.user = current_user
+      @room_user.save
       redirect_to room_path(@room)
     else
       render :new, status: :unprocessable_entity
