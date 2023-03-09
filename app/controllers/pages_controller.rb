@@ -17,6 +17,12 @@ class PagesController < ApplicationController
       flash[:alert] = "No rooms available for that room code!"
       redirect_to enter_room_path
     else
+      # if @room.room_users.length == 8
+      #   flash[:alert] = "The room is full!"
+      #   redirect_to enter_room_path
+      # else
+      #   accept user -see down
+      # end
       @room_user = RoomUser.new
       @room_user.room = @room
       @room_user.user = current_user
