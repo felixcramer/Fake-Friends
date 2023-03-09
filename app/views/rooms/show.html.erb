@@ -1,8 +1,9 @@
-<h1>Room name: <%= @room.name %></h1>
-<h2>Your room code: <%= @room.room_code %></h2>
+<div class="container">
+  <h2 class="ff-title-medium"><%= @room.name %></h2>
+  <h2>Your room code: <%= @room.room_code %></h2>
 
-<p>waiting for users to connect...</p>
-
-<% if current_user == @room.user %>
-  <%= link_to "Start game",  room_room_question_path(@room, @room.room_questions.first), class: "btn btn-primary" %>
-<% end %>
+  <p>waiting for users to connect...</p>
+  <% if current_user == @room.user %>
+    <%= link_to "Start game",  room_room_question_path(@room, @room.room_questions.first), class: "btn btn-primary" %>
+  <% end %>
+</div>
