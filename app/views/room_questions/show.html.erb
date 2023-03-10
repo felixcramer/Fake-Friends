@@ -1,12 +1,10 @@
 <div data-controller="change-page"
     data-change-page-question-count-value="<%=@array_of_urls%>"
-    data-change-page-url-value="<%=enter_room_path%>">
+    data-change-page-url-value="<%= room_ranking_room_path %>">
 <h2><%= @room_question.question.content %></h2>
 
-<%= simple_form_for [@room, @room_question] do |f| %>
-  <%= f.association :questions, collection: @room_question.room.questions, label_method: :content, as: :radio_buttons, input_html: { class: 'checkbox-style'} %>
-  <%= f.button :submit, class: 'white' %>
-<% end %>
+
 
 <p data-controller="change-number" data-change-number-target="number">5</p>
 </div>
+ 
