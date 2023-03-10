@@ -4,9 +4,7 @@
 
 .waiting {
   text-align: center;
-  margin-top: px;
   font-size: larger;
-  margin-bottom: 50px;
 }
 
 .player-avatar {
@@ -28,14 +26,12 @@
 }
 
 .avatar-container {
-  padding-top: 140px;
-  margin: 0px 20px 0px 20px;
+  margin: 0px 20px;
 }
 
 .flex-loader {
   display: flex;
   justify-content: center;
-  margin-top: 70px;
 }
 
 .start-btn-position-bottom {
@@ -45,4 +41,24 @@
   height: 42%;
   width: 100%;
   margin: 0px 50px;
+}
+
+
+// Flex Box Page
+.ff-flex-page {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 65px 0
+}
+
+.ff-info-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  margin-top: 85px;
+  padding-bottom: 15px;
+  padding-top: 50px;
 }

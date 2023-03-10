@@ -1,7 +1,21 @@
 .ff-title-medium {
   text-align: center;
   font-size: 3em;
-  padding-top: 150px;
   animation: backInRight;
+  animation-duration: 1s;
+}
+
+.ff-title-large {
+  text-align: center;
+  font-size: 3.8em;
+  animation: backInRight;
+  animation-duration: 1s;
+}
+
+.ff-title-ranking {
+  text-align: center;
+  font-size: 3.8em;
+  padding-top: 50px;
+  animation: bounceInDown;
   animation-duration: 1s;
 }

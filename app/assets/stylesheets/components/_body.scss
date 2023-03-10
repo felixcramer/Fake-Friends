@@ -4,6 +4,8 @@ body {
 }
 
 .ff-background {
+  display: flex;
+  flex-direction: column;
   background: asset_url("ff_back.jpg");
   background-position: center;
   background-size: cover;
