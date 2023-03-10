@@ -8,3 +8,10 @@
 .ff-ranking-card-name {
   font-style: italic;
 }
+
+.card-round-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}

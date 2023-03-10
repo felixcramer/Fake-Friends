@@ -1,0 +1,27 @@
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border: solid 2px #ff3152;
+  border-radius: 50%;
+  p {
+    margin-bottom: 0;
+    color: #ff3152;
+  }
+}
+
+.ff-flex-round-1 {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.ff-grid-round-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 600px;
+  margin: 30px auto;
+}
