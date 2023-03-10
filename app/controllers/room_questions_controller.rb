@@ -4,8 +4,8 @@ class RoomQuestionsController < ApplicationController
   end
 
   def create
-    new_answer = RoomQuestion.new(user: current_user, answer: params[:user_answer][:answer])
-    new_answer.save
+    @first_user_a = RoomQuestion.new(user: current_user, answer: params[:user_answer][:answer])
+    @first_user_a.save
   end
 
   private
