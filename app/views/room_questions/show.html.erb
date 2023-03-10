@@ -1,7 +1,8 @@
 <h2><%= @room_question.question.content %></h2>
 
-<% @room_question.question.answers.each do |answer| %>
-  <p> <%= answer.content %> </p>
+<%= simple_form_for [@room, @room_question] do |f| %>
+  <%= f.association :questions, collection: @room_question.room.questions, label_method: :content, as: :radio_buttons, input_html: { class: 'checkbox-style'} %>
+  <%= f.button :submit, class: 'white' %>
 <% end %>
 
-<%= render "shared/second_round" %>
+<%= render "shared/second_round" %>z
