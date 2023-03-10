@@ -4,6 +4,8 @@ body {
 }
 
 .ff-background {
+  display: flex;
+  flex-direction: column;
   background: asset_url("ff_back.jpg");
   background-position: center;
   background-size: cover;
@@ -14,15 +16,34 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 .checkbox-style {
   position: absolute;
   transform: scale(0);
 }
 
-.checkbox-style + label {
+.checkbox-style+label {
   cursor: pointer;
   justify-content: center;
-  background-color: #4caf50; /* Green */
+  background-color: #4caf50;
+  /* Green */
   border: none;
   color: white;
   padding: 15px 32px;

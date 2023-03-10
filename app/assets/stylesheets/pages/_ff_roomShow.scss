@@ -1,0 +1,64 @@
+.room-code {
+  text-align: center;
+}
+
+.waiting {
+  text-align: center;
+  font-size: larger;
+}
+
+.player-avatar {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.placeholder-avatar {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.grid-avatars {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15px;
+}
+
+.avatar-container {
+  margin: 0px 20px;
+}
+
+.flex-loader {
+  display: flex;
+  justify-content: center;
+}
+
+.start-btn-position-bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 42%;
+  width: 100%;
+  margin: 0px 50px;
+}
+
+
+// Flex Box Page
+.ff-flex-page {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 65px 0
+}
+
+.ff-info-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  margin-top: 85px;
+  padding-bottom: 15px;
+  padding-top: 50px;
+}

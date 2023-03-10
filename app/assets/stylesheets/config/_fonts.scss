@@ -1,6 +1,6 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lilita+One&family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lilita+One&family=Poppins&display=swap");
 
 // Define fonts for body and headers
 $body-font: "Lilita One", "cursive";
@@ -16,10 +16,12 @@ p,
 a,
 li {
   font-family: $body-font;
-  color: #F4F1FF;
+  color: #f4f1ff;
 }
 
-
+.ff-margin-v-50 {
+  margin: 50px 0;
+}
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

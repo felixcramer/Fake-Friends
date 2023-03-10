@@ -1,9 +1,41 @@
-<div class="container">
-  <h2 class="ff-title-medium"><%= @room.name %></h2>
-  <h2>Your room code: <%= @room.room_code %></h2>
+<div class="ff-flex-page">
 
-  <p>waiting for users to connect...</p>
-  <% if current_user == @room.user %>
-    <%= link_to "Start game",  room_room_question_path(@room, @room.room_questions.first), class: "btn btn-primary" %>
-  <% end %>
+  <div>
+    <h2 class="ff-title-large"><%= @room.name %></h2>
+    <h3 class="room-code">Room code... <%= @room.room_code %></h3>
+  </div>
+
+  <div class="ff-info-container">
+    <div class="avatar-container">
+      <ul>
+          <div class="grid-avatars" data="data-contoller: player-avatars">
+            <% @room.users.each do |user| %>
+              <% if user.photo.present? %>
+              <li>
+                <%= cl_image_tag user.photo.key, crop: "fill", gravity: "faces", class:"player-avatar", alt:"player-img" %>
+              </li>
+              <% else %>
+              <li>
+                <img src="https://images.unsplash.com/photo-1633984726552-3ed7296dc5c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="card-img" alt="Spaceship-img">
+              </li>
+              <% end %>
+            <% end %>
+            <% (8 - @room.users.count).times do %>
+              <li><img src="https://images.unsplash.com/photo-1633984726552-3ed7296dc5c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="placeholder-avatar" alt=""></li>
+            <% end %>
+          </div>
+      </ul>
+    </div>
+    <div>
+      <div class="flex-loader">
+        <p class="loader"></p>
+      </div>
+      <p class="waiting">waiting for users to connect</p>
+    </div>
+  </div>
+  <div class="ff-container">
+    <% if current_user == @room.user %>
+      <%= link_to "Start game",  room_room_question_path(@room, @room.room_questions.first), class: "ff-btn-form-red" %>
+    <% end %>
+  </div>
 </div>
