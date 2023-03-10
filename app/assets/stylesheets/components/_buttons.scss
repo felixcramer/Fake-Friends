@@ -2,7 +2,7 @@
   padding: 20px 0px;
   width: 100%;
   margin-top: 20px;
-  background: #FF3152;
+  background: #ff3152;
   border-radius: 8px;
   text-align: center;
 
@@ -17,11 +17,11 @@
   padding: 20px 100px;
   width: 100%;
   margin-top: 20px;
-  background: #FF3152;
+  background: #ff3152;
   border-radius: 8px;
   text-align: center;
   font-size: larger;
-  color: #F4F1FF;
+  color: #f4f1ff;
   border: none;
 }
 
@@ -29,7 +29,7 @@
   padding: 20px 0px;
   width: 100%;
   margin-top: 20px;
-  background: #F4F1FF;
+  background: #f4f1ff;
   border-radius: 8px;
   text-align: center;
 
@@ -37,6 +37,20 @@
     margin: 0;
     padding: 0;
     color: black;
+    font-size: larger;
+  }
+}
+
+.ranking-button {
+  margin-top: 10px;
+  padding: 20px 30px;
+  background: #ff3152;
+  border-radius: 8px;
+  text-align: center;
+
+  p {
+    margin: 0;
+    padding: 0;
     font-size: larger;
   }
 }

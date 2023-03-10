@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 
   resources :rooms, only: %i[index show new create] do
     resources :room_questions, only: %i[index show new create]
+    get "ranking", to: "pages#ranking", as: "ranking_room"
   end
 end
