@@ -10,7 +10,6 @@ body {
   background-position: center;
   background-size: cover;
   height: 100%;
-
 }
 
 a {
@@ -26,8 +25,40 @@ ul {
   padding: 0;
 }
 
-.grid-2-col {
+li {
+  list-style: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.checkbox-style {
+  position: absolute;
+  transform: scale(0);
+}
+
+.checkbox-style+label {
+  cursor: pointer;
+  justify-content: center;
+  background-color: #4caf50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.ff-grid-2-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
+}
+
+.white {
+  color: white;
 }

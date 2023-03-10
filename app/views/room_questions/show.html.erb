@@ -1,7 +1,10 @@
+<div data-controller="change-page"
+    data-change-page-question-count-value="<%=@array_of_urls%>"
+    data-change-page-url-value="<%= room_ranking_room_path %>">
 <h2><%= @room_question.question.content %></h2>
 
-<% @room_question.question.answers.each do |answer| %>
-  <p> <%= answer.content %> </p>
-<% end %>
 
-<%= render "shared/second_round" %>
+
+<p data-controller="change-number" data-change-number-target="number">5</p>
+</div>
+ 

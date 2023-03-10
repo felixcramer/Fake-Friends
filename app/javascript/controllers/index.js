@@ -4,5 +4,11 @@
 
 import { application } from "./application"
 
+import ChangeNumberController from "./change_number_controller"
+application.register("change-number", ChangeNumberController)
+
+import ChangePageController from "./change_page_controller"
+application.register("change-page", ChangePageController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
