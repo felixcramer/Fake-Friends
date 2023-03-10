@@ -1,3 +1,6 @@
+<div data-controller="change-page"
+    data-change-page-question-count-value="<%=@array_of_urls%>"
+    data-change-page-url-value="<%=enter_room_path%>">
 <h2><%= @room_question.question.content %></h2>
 
 <%= simple_form_for [@room, @room_question] do |f| %>
@@ -5,4 +8,5 @@
   <%= f.button :submit, class: 'white' %>
 <% end %>
 
-<%= render "shared/second_round" %>z
+<p data-controller="change-number" data-change-number-target="number">5</p>
+</div>

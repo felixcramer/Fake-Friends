@@ -1,7 +1,12 @@
 class RoomQuestionsController < ApplicationController
   def show
     @room_question = RoomQuestion.find(params[:id])
-  end
+    @room_questions = @room_question.room.room_questions
+    @array_of_urls = []
+    @room_questions.each do |question|
+      @array_of_urls << room_room_question_path(question.room, question)
+    end
+  end 
 
   def create
     @first_user_a = RoomQuestion.new(user: current_user, answer: params[:user_answer][:answer])
