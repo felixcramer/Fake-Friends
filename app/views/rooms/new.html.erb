@@ -1,11 +1,12 @@
-<div class="ff-container">
+<div class="ff-container home-body">
+  <div class="form-distance-above">
+    <h2 class="ff-title-medium ff-margin-v-50">Enter a room name</h2>
 
-  <h2 class="ff-title-medium">Enter a room name</h2>
-
-  <%= simple_form_for @room do |f| %>
-    <%= f.input :name, placeholder: "Enter a room name" %>
-    <%= f.submit "Enter", class: "ff-btn-form-red" %>
-  <% end %>
+    <%= simple_form_for @room do |f| %>
+      <%= f.input :name, placeholder: "Enter a room name" %>
+      <%= f.submit "Enter", class: "ff-btn-form-red" %>
+    <% end %>
+  </div>
 
   <div class="flex-back-link">
     <%= link_to "<< BACK", root_path %>

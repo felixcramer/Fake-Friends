@@ -1,17 +1,8 @@
 .ff-title {
   text-align: center;
   font-size: 3.8em;
-  padding-top: 150px;
   animation: backInRight;
   animation-duration: 1s;
-}
-
-.absolute-from-bottom {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 42%;
-  width: 100%;
 }
 
 .flex-btn-landing {
@@ -19,4 +10,13 @@
   flex-direction: column;
   justify-content: space-between;
   margin: 0px 50px 0px 50px;
+}
+
+.home-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 150px;
+  padding-bottom: 35px;
+  height: 85%;
 }
