@@ -1,15 +1,17 @@
 <div class="ff-container">
-  <h2 class="ff-title-medium"><%= @room.name %></h2>
-  <h3>Room code... <%= @room.room_code %></h3>
 
-  <p>waiting for users to connect...</p>
+  <h2 class="ff-title-large"><%= @room.name %></h2>
+
+
+  <h3 class="room-code">Room code... <%= @room.room_code %></h3>
+
+
 </div>
 
 <ul>
-  <div class="avatar-position">
+  <div class="avatar-container">
     <div class="grid-avatars" data="data-contoller: player-avatars">
-      <% @room.room_users.each do |room_user| %>
-        <% user = User.find(room_user[:user_id]) %>
+      <% @room.users.each do |user| %>
         <% if user.photo.present? %>
         <li>
           <%= cl_image_tag user.photo.key, crop: "fill", gravity: "faces", class:"player-avatar", alt:"player-img" %>
@@ -20,12 +22,20 @@
         </li>
         <% end %>
       <% end %>
+      <% (8 - @room.users.count).times do %>
+        <li><img src="https://images.unsplash.com/photo-1633984726552-3ed7296dc5c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="placeholder-avatar" alt=""></li>
+      <% end %>
     </div>
   </div>
 </ul>
 
-<div class="ff-container">
-  <% if current_user == @room.user %>
-    <%= link_to "Start game",  room_room_question_path(@room, @room.room_questions.first), class: "ff-btn-form-red start-btn-pos" %>
-  <% end %>
+<div class="flex-loader">
+  <p class="loader"></p>
 </div>
+  <p class="waiting">waiting for users to connect</p>
+
+<div class="ff-container">
+    <% if current_user == @room.user %>
+      <%= link_to "Start game",  room_room_question_path(@room, @room.room_questions.first), class: "ff-btn-form-red" %>
+    <% end %>
+  </div>

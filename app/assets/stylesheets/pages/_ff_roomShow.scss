@@ -1,6 +1,23 @@
+.room-code {
+  text-align: center;
+}
+
+.waiting {
+  text-align: center;
+  margin-top: px;
+  font-size: larger;
+  margin-bottom: 50px;
+}
+
 .player-avatar {
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.placeholder-avatar {
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
 }
 
@@ -10,12 +27,22 @@
   gap: 15px;
 }
 
-.avatar-position {
-  padding-top: 100px;
+.avatar-container {
+  padding-top: 140px;
   margin: 0px 20px 0px 20px;
 }
 
-.start-btn-pos {
-  position: relative;
-  bottom: 0px;
+.flex-loader {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+.start-btn-position-bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 42%;
+  width: 100%;
+  margin: 0px 50px;
 }
