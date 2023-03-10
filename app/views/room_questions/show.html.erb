@@ -1,10 +1,37 @@
-<div data-controller="change-page"
-    data-change-page-question-count-value="<%=@array_of_urls%>"
-    data-change-page-url-value="<%= room_ranking_room_path %>">
-<h2><%= @room_question.question.content %></h2>
-
-
-
-<p data-controller="change-number" data-change-number-target="number">5</p>
-</div>
- 
+<% if @room_question.question.round == 2  %>
+    <div data-controller="change-page" data-change-page-question-count-value="<%=@array_of_urls%>" data-change-page-url-value="<%= room_ranking_room_path%>">
+        <div class="timer-navbar">
+            <div class="timer"><p data-controller="change-number" data-change-number-target="number">10</p>
+            </div>
+        </div>
+        <div class="ff-container">
+            <h2 class="ff-title-round-2"><%= @room_question.question.content %></h2>
+            <div class="ff-grid-round-2">
+                <div class="card-round-2">
+                    <%= cl_image_tag @users[0].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
+                    <p class="ff-ranking-card-name"><%= @users[0].username %></p>
+                </div>
+                <div class="card-round-2">
+                    <%= cl_image_tag @users[1].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
+                    <p class="ff-ranking-card-name"><%= @users[1].username %></p>
+                </div>
+                <div class="card-round-2">
+                    <%= cl_image_tag @users[2].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
+                    <p class="ff-ranking-card-name"><%= @users[2].username %></p>
+                </div>
+                <div class="card-round-2">
+                    <%= cl_image_tag @users[3].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
+                    <p class="ff-ranking-card-name"><%= @users[3].username %></p>
+                </div>
+                <div class="card-round-2">
+                    <%= cl_image_tag @users[4].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
+                    <p class="ff-ranking-card-name"><%= @users[4].username %></p>
+                </div>
+                <div class="card-round-2">
+                    <%= cl_image_tag @users[5].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
+                    <p class="ff-ranking-card-name"><%= @users[5].username %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>
