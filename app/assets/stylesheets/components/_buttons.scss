@@ -1,6 +1,6 @@
 .ff-btn-red {
   padding: 20px 0px;
-  margin: 0px 80px;
+  width: 100%;
   margin-top: 20px;
   background: #FF3152;
   border-radius: 8px;
@@ -13,9 +13,21 @@
   }
 }
 
+.ff-btn-form-red {
+  padding: 20px 100px;
+  width: 100%;
+  margin-top: 20px;
+  background: #FF3152;
+  border-radius: 8px;
+  text-align: center;
+  font-size: larger;
+  color: #F4F1FF;
+  border: none;
+}
+
 .ff-btn-white {
   padding: 20px 0px;
-  margin: 0px 80px;
+  width: 100%;
   margin-top: 20px;
   background: #F4F1FF;
   border-radius: 8px;

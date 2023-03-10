@@ -3,8 +3,9 @@
     data-change-page-url-value="<%=enter_room_path%>">
 <h2><%= @room_question.question.content %></h2>
 
-<% @room_question.question.answers.each do |answer| %>
-  <p> <%= answer.content %> </p>
+<%= simple_form_for [@room, @room_question] do |f| %>
+  <%= f.association :questions, collection: @room_question.room.questions, label_method: :content, as: :radio_buttons, input_html: { class: 'checkbox-style'} %>
+  <%= f.button :submit, class: 'white' %>
 <% end %>
 
 <p data-controller="change-number" data-change-number-target="number">5</p>

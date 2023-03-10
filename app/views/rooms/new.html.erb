@@ -1,7 +1,14 @@
-<%= link_to "BACK", root_path %>
+<div class="ff-container">
 
-<h2>Host game</h2>
-<%= simple_form_for @room do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit %>
-<% end %>
+  <h2 class="ff-title-medium">Enter a room name</h2>
+
+  <%= simple_form_for @room do |f| %>
+    <%= f.input :name %>
+    <%= f.button :submit, class: "ff-btn-form-red" %>
+  <% end %>
+
+  <div class="flex-back-link">
+    <%= link_to "<< BACK", root_path %>
+  </div>
+
+</div>

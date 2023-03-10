@@ -7,4 +7,15 @@ class RoomQuestionsController < ApplicationController
       @array_of_urls << room_room_question_path(question.room, question)
     end
   end 
+
+  def create
+    @first_user_a = RoomQuestion.new(user: current_user, answer: params[:user_answer][:answer])
+    @first_user_a.save
+  end
+
+  private
+
+  def user_answers_params
+    params.require(:user_answers).permit(:answer_id)
+  end
 end
