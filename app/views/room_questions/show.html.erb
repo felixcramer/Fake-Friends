@@ -1,3 +1,33 @@
+<% if @room_question.question.round == 1  %>
+     <div data-controller="change-page" data-change-page-question-count-value="<%=@array_of_urls%>" data-change-page-url-value="<%= room_ranking_room_path%>">
+        <div class="timer-navbar">
+            <div class="timer"><p data-controller="change-number" data-change-number-target="number">10</p>
+            </div>
+        </div>
+        <div class="ff-container">
+            <h2 class="ff-title-round-2"><%= @room_question.question.content %></h2>
+            <div class="ff-flex-round-1">
+                <div class="ranking-card">
+                <%= link_to enter_room_path, class: "button-round-1" do %>
+                <p><%= @room_question.question.answers[0].content %></p>
+                <% end %>
+                <div class="ranking-card">
+                <%= link_to enter_room_path, class: "button-round-1" do %>
+                <p><%= @room_question.question.answers[1].content %></p>
+                <% end %>
+                <div class="ranking-card">
+                <%= link_to enter_room_path, class: "button-round-1" do %>
+                <p><%= @room_question.question.answers[2].content %></p>
+                <% end %>
+                <div class="ranking-card">
+                <%= link_to enter_room_path, class: "button-round-1" do %>
+                <p><%= @room_question.question.answers[3].content %></p>
+                <% end %>
+            </div>
+        </div>
+    </div>
+<% end %>
+
 <% if @room_question.question.round == 2  %>
     <div data-controller="change-page" data-change-page-question-count-value="<%=@array_of_urls%>" data-change-page-url-value="<%= room_ranking_room_path%>">
         <div class="timer-navbar">
@@ -35,3 +65,4 @@
         </div>
     </div>
 <% end %>
+

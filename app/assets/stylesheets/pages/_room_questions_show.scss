@@ -12,6 +12,13 @@
   }
 }
 
+.ff-flex-round-1 {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
 .ff-grid-round-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
