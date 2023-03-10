@@ -16,11 +16,11 @@ export default class extends Controller {
     if (currentPage + 1 === length) {
       setTimeout(() => {
         window.location = this.urlValue;
-      }, 5000);
+      }, 10000);
     } else {
       setTimeout(() => {
         window.location = this.questionCountValue[currentPage + 1];
-      }, 5000);
+      }, 10000);
     }
   }
 }

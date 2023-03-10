@@ -1,5 +1,6 @@
 class RoomQuestionsController < ApplicationController
   def show
+    @users = User.all
     @room = Room.find(params[:room_id])
     @room_question = RoomQuestion.find(params[:id])
     @room_questions = @room_question.room.room_questions
