@@ -23,7 +23,7 @@ class PagesController < ApplicationController
         raise
       else
         WaitingRoomChannel.broadcast_to(
-          @waiting_room,
+          @room_user,
           "There is a new player-avatar"
         )
         @room_user = RoomUser.new

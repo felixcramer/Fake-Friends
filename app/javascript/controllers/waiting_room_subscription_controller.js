@@ -8,11 +8,10 @@ export default class extends Controller {
     waitingroomId: Number
   }
   connect() {
-
-    console.log(this.waitingroomIdValue)
     createConsumer().subscriptions.create(
       { channel: "WaitingRoomChannel", id: this.waitingroomIdValue },
       { received: (data) => { console.log(data) } }
-    );
+    )
+    console.log(`Subscribed to the chatroom with the id ${this.waitingroomIdValue}`)
   }
 }
