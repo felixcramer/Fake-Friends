@@ -1,4 +1,5 @@
-<div class="ff-container home-body">
+<div class="ff-container home-body" data-controller="transition">
+  <div class="transition transition-2" data-transition-target="element"></div>
   <div class="form-distance-above">
     <h2 class="ff-title-medium ff-margin-v-50">Enter a room name</h2>
 
@@ -9,7 +10,7 @@
   </div>
 
   <div class="flex-back-link">
-    <%= link_to "<< BACK", root_path %>
+    <%= link_to "<< BACK", root_path, data: { action: "click->transition#pressLink" } %>
   </div>
 
 </div>
