@@ -23,6 +23,10 @@ class RoomsController < ApplicationController
     end
     @room.room_code = 4.times.map{rand(10)}.join
     if @room.save
+      WaitingRoomChannel.broadcast_to(
+        @waiting_room,
+        "There is a new player-avatar"
+      )
       @room_user = RoomUser.new
       @room_user.room = @room
       @room_user.user = current_user

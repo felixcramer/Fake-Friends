@@ -22,6 +22,10 @@ class PagesController < ApplicationController
         redirect_to enter_room_path
         raise
       else
+        WaitingRoomChannel.broadcast_to(
+          @waiting_room,
+          "There is a new player-avatar"
+        )
         @room_user = RoomUser.new
         @room_user.room = @room
         @room_user.user = current_user

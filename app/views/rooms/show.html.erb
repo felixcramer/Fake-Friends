@@ -1,4 +1,4 @@
-<div class="ff-flex-page">
+<div class="ff-flex-page" >
 
   <div>
     <h2 class="ff-title-large"><%= @room.name %></h2>
@@ -8,7 +8,10 @@
   <div class="ff-info-container">
     <div class="avatar-container">
       <ul>
-          <div class="grid-avatars" data="data-contoller: player-avatars">
+          <div class="grid-avatars"
+          data-controller="waiting-room-subscription"
+          data-waiting-room-subscription-target ="avatars"
+          data-waiting-room-subscription-waitingroom-id-value="<%= @room.id %>">
             <% @room.users.each do |user| %>
               <% if user.photo.present? %>
               <li>
