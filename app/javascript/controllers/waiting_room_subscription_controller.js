@@ -12,6 +12,6 @@ export default class extends Controller {
       { channel: "WaitingRoomChannel", id: this.waitingroomIdValue },
       { received: (data) => { console.log(data) } }
     )
-    console.log(`Subscribed to the chatroom with the id ${this.waitingroomIdValue}`)
+    console.log(`Subscribed to the waiting room with the id ${this.waitingroomIdValue}`)
   }
 }
