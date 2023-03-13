@@ -6,7 +6,7 @@ body {
 .ff-background {
   display: flex;
   flex-direction: column;
-  background: #070415;
+  background: #1b2735;
   background-position: center;
   background-size: cover;
   height: 100%;
@@ -61,4 +61,8 @@ ul {
 
 .white {
   color: white;
+}
+
+button.buttonClassName:disabled {
+  opacity: 0.3;
 }
