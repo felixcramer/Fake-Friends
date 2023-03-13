@@ -31,8 +31,9 @@ SimpleForm.setup do |config|
   # collection wrappers.
   config.include_default_input_wrapper_class = false
 
+  # THIS WAS SET OFF BY FAKE-FRIENDS!!!
   # CSS class to add for error notification helper.
-  config.error_notification_class = 'alert alert-danger'
+  # config.error_notification_class = 'alert alert-danger'
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.
@@ -57,7 +58,7 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :label, class: 'form-label'
     b.use :input, class: 'form-control', error_class: 'is-invalid', valid_class: 'is-valid'
-    b.use :full_error, wrap_with: { class: 'invalid-feedback' }
+    b.use :full_error, wrap_with: { class: 'alert fade-out' }
     b.use :hint, wrap_with: { class: 'form-text' }
   end
 

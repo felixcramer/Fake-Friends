@@ -1,7 +1,7 @@
   <% @room.users.each do |user| %>
     <% if user.photo.present? %>
     <li>
-      <%= cl_image_tag user.photo.key, crop: "fill", gravity: "faces", class:"player-avatar", alt:"player-img" %>
+      <%= cl_image_tag user.photo.key, class:"player-avatar", alt:"player-img" %>
     </li>
     <% else %>
     <li>
