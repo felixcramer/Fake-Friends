@@ -1,0 +1,8 @@
+<div class="ff-container">
+  <h1 class="ff-title-ranking">Calculating...</h1>
+   <% if current_user == @room.user %>
+      <%= link_to "Start Second Round",  room_room_question_path(@room, @room.room_questions.first), class: "ff-btn-form-red" %>
+    <% end %>
+</div>
+
+<% raise %>

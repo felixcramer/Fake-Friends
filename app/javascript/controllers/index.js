@@ -10,6 +10,9 @@ application.register("change-number", ChangeNumberController)
 import ChangePageController from "./change_page_controller"
 application.register("change-page", ChangePageController)
 
+import ChangePageSecondController from "./change_page_second_controller"
+application.register("change-page-second", ChangePageSecondController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

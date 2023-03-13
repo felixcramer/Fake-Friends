@@ -8,16 +8,29 @@ class RoomQuestionsController < ApplicationController
     @room_questions.each do |question|
       @array_of_urls << room_room_question_path(question.room, question)
     end
+
+    @answer = Answer.new
   end 
 
   def create
-    @first_user_a = RoomQuestion.new(user: current_user, answer: params[:user_answer][:answer])
-    @first_user_a.save
+  end
+
+  def update
+  @room = Room.find(params[:room_id])
+  @room_question = RoomQuestion.find(params[:id])
+  if @room_question.question.round == 1
+    @new_answer = UserAnswer.new
+    @new_answer.user = current_user
+    @picked_answer = Answer.find(params[:room_question][:answer_ids][1])
+    @new_answer.answer = @picked_answer
+    @new_answer.save
+    redirect_to room_room_question_path(@room, @room_question)
+  end
   end
 
   private
 
   def user_answers_params
-    params.require(:user_answers).permit(:answer_id)
+    params.require(:answers).permit(:room_question)
   end
 end
