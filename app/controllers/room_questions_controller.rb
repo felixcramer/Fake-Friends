@@ -20,6 +20,7 @@ class RoomQuestionsController < ApplicationController
   @room_question = RoomQuestion.find(params[:id])
   if @room_question.question.round == 1
     @new_answer = UserAnswer.new
+    @new_anser.room = @room
     @new_answer.user = current_user
     @picked_answer = Answer.find(params[:room_question][:answer_ids][1])
     @new_answer.answer = @picked_answer
