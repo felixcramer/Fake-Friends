@@ -34,7 +34,7 @@ puts "#{User.count} users were created."
 puts "..."
 puts "Creating the 3 main questions with 4 answers each for first round."
 
-first_question = Question.create(content: "What kind of weather do you prefer", round: 1)
+first_question = Question.create(content: "What kind of weather do you prefer?", round: 1)
 first_answer = Answer.new(content: "Endless Rain")
 first_answer.question = first_question
 first_answer.save!

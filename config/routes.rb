@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :rooms, only: %i[index show new create] do
     resources :room_questions, only: %i[index show new create update]
     get "creating_round", to: "pages#creating_round", as: "creating_round"
+    post "post_round", to: "pages#post_round", as: "post_round"
     get "ranking", to: "pages#ranking", as: "ranking_room"
   end
 end

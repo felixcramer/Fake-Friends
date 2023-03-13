@@ -25,7 +25,7 @@
                 <% end %>
                 
                 <%= simple_form_for [@room, @room_question] do |f| %>
-                <%= f.association :answers, collection: @room_question.question.answers, label_method: :content, as: :check_boxes %>
+                <%= f.association :answers, collection: @room_question.question.answers, label_method: :content, as: :check_boxes, checked: false %>
                 <%= f.button :submit, class: 'white' %>
                 <% end %>
             </div>
@@ -66,6 +66,7 @@
                     <%= cl_image_tag @users[5].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
                     <p class="ff-ranking-card-name"><%= @users[5].username %></p>
                 </div>
+                <% raise %>
             </div>
         </div>
     </div>
