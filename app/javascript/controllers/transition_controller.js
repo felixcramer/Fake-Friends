@@ -8,6 +8,7 @@ export default class extends Controller {
 
   pressLink(e) {
     e.preventDefault();
+    console.log("hello world");
     let target = e.currentTarget.href;
 
     this.elementTarget.classList.add("is-active");
