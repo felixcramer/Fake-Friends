@@ -26,6 +26,13 @@ class PagesController < ApplicationController
         @room_user.room = @room
         @room_user.user = current_user
         @room_user.save
+        WaitingRoomChannel.broadcast_to(
+          @room,
+          render_to_string(
+            partial: "waiting_rooms/waiting_room"
+            # locals: { @room }
+          )
+        )
         redirect_to room_path(@room)
       end
     end

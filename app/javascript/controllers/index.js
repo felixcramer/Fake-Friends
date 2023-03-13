@@ -13,5 +13,8 @@ application.register("change-page", ChangePageController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import WaitingRoomSubscriptionController from "./waiting_room_subscription_controller"
+application.register("waiting-room-subscription", WaitingRoomSubscriptionController)
+
 import TransitionController from "./transition_controller"
 application.register("transition", TransitionController)
