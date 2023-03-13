@@ -14,6 +14,7 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     @room.user = current_user
+    @room.room_code = 4.times.map{rand(10)}.join
     if @room.save
       @questions = Question.all
       @questions.each do |question|
@@ -22,7 +23,6 @@ class RoomsController < ApplicationController
         @room_question.room = @room
         @room_question.save
       end
-      @room.room_code = 4.times.map { rand(10) }.join
       @room_user = RoomUser.new
       @room_user.room = @room
       @room_user.user = current_user
