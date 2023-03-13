@@ -36,10 +36,25 @@ class RoomQuestionsController < ApplicationController
     end 
 
     if @room_question.question.round == 2
+      @right_answer = @room_question.answers[0]
       @user = current_user
-      @picked_user = User.find(params[:room_question][:answer_ids][1])
-      @user_answers = UserAnswer.where(user_id: @user, room_id: @room)
-      raise
+      @picked_users = []
+      @array_of_ids = params[:room_question][:answer_ids]
+      @array_of_ids.delete_at(0)
+      @array_of_ids.each do |number|
+        user_from_form = User.find(number)
+        @picked_users << user_from_form
+      end
+      @picked_users.each do |u|
+        user_answers_in_room = UserAnswer.where(room_id: @room, user_id: u)
+        user_answers_in_room.each do |a|
+          if a.answer.content == @right_answer.content
+            raise
+          else
+            raise
+          end 
+        end
+      end
     end 
   end
 
