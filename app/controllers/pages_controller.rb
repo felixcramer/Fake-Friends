@@ -25,15 +25,14 @@ class PagesController < ApplicationController
         @room_user = RoomUser.new
         @room_user.room = @room
         @room_user.user = current_user
+        @room_user.save
         WaitingRoomChannel.broadcast_to(
-          @waiting_room,
-          # "There is a new player-avatar"
+          @room,
           render_to_string(
-            partial: "waiting_rooms/waiting_room",
-            locals: { user: @room_user.user }
+            partial: "waiting_rooms/waiting_room"
+            # locals: { @room }
           )
         )
-        @room_user.save
         redirect_to room_path(@room)
       end
     end

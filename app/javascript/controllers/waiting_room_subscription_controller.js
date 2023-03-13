@@ -10,7 +10,12 @@ export default class extends Controller {
   connect() {
     createConsumer().subscriptions.create(
       { channel: "WaitingRoomChannel", id: this.waitingroomIdValue },
-      { received: (data) => { console.log(data) } }
+      {
+        received: (data) => {
+          this.avatarsTarget.innerHTML = ""
+          this.avatarsTarget.insertAdjacentHTML("beforeend", data)
+        }
+      }
     )
     console.log(`Subscribed to the waiting room with the id ${this.waitingroomIdValue}`)
   }

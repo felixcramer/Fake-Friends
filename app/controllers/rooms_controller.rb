@@ -21,19 +21,11 @@ class RoomsController < ApplicationController
       @room_question.room = @room
       @room_question.save
     end
-    @room.room_code = 4.times.map{rand(10)}.join
+    @room.room_code = 4.times.map { rand(10) }.join
     if @room.save
       @room_user = RoomUser.new
       @room_user.room = @room
       @room_user.user = current_user
-      WaitingRoomChannel.broadcast_to(
-        @waiting_room,
-        # "There is a new player-avatar"
-        render_to_string(
-          partial: "waiting_rooms/waiting_room",
-          locals: { user: @room_user.user }
-        )
-      )
       @room_user.save
       redirect_to room_path(@room)
     else

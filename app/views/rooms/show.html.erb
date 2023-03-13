@@ -12,12 +12,8 @@
           data-controller="waiting-room-subscription"
           data-waiting-room-subscription-target ="avatars"
           data-waiting-room-subscription-waitingroom-id-value="<%= @room.id %>">
-            <% @room.users.each do |user| %>
-              <%= render "waiting_rooms/waiting_room", user: user %>
-            <% end %>
-            <% (8 - @room.users.count).times do %>
-              <li><img src="https://images.unsplash.com/photo-1633984726552-3ed7296dc5c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="placeholder-avatar" alt=""></li>
-            <% end %>
+          <!-- HERE ACTION CABLE IS GOING TO SYNCHRONIZE, WHEN NEW PLAYER IS ENTERING-->
+            <%= render "waiting_rooms/waiting_room" %>
           </div>
       </ul>
     </div>
