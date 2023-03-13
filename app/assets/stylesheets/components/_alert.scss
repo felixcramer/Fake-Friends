@@ -1,6 +1,25 @@
 .alert {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
-  z-index: 1000;
+  margin: 0;
+  color: darkgoldenrod;
+  border-color: darkgoldenrod;
+
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%)
+}
+
+.fade-out {
+  animation: fadeOut 2s forwards;
+  animation-delay: 3.5s;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
