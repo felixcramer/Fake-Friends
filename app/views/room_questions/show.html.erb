@@ -1,3 +1,10 @@
+<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+<div id='stars'></div>
+<div id='stars2'></div>
+<div id='stars3'></div>
+
+
+
 <% if @room_question.question.round == 1  %>
      <div data-controller="change-page" data-change-page-question-count-value="<%=@array_of_urls%>" data-change-page-url-value="<%= room_ranking_room_path%>">
         <div class="timer-navbar">
@@ -65,4 +72,3 @@
         </div>
     </div>
 <% end %>
-
