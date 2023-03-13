@@ -1,5 +1,5 @@
-<div class="ff-container home-body">
-
+<div class="ff-container home-body" data-controller="transition">
+  <div class="transition transition-2" data-transition-target="element"></div>
   <div class="text-container">
     <h1 class="ff-title-medium
           animate__animated
@@ -12,7 +12,7 @@
   </div>
 
   <div class="flex-back-link">
-    <%= link_to '<< BACK', root_path %>
+    <%= link_to '<< BACK', root_path, data: { action: "click->transition#pressLink" } %>
   </div>
 
 </div>

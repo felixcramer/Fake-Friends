@@ -1,13 +1,14 @@
-<div class="home-body">
+<div class="home-body" data-controller="transition">
+  <div class="transition transition-1"  data-transition-target="element"></div>
   <h1 class="ff-title">FakeFriends</h1>
   <div class="flex-btn-landing">
-    <%= link_to enter_room_path, class: "ff-btn-red" do %>
+    <%= link_to enter_room_path, class: "ff-btn-red", data: { action: "click->transition#pressLink" } do %>
       <p>Join a game</p>
     <% end %>
-    <%= link_to new_room_path, class: "ff-btn-white" do %>
+    <%= link_to new_room_path, class: "ff-btn-white", data: { action: "click->transition#pressLink" } do %>
       <p>Host a game</p>
     <% end %>
-    <%= link_to informations_path, class: "link-how-to-play" do %>
+    <%= link_to informations_path, class: "link-how-to-play", data: { action: "click->transition#pressLink" } do %>
       <p>How to play</p>
     <% end %>
   </div>
