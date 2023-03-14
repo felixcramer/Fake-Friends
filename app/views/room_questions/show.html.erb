@@ -25,7 +25,7 @@
                 <% end %>
                 
                 <%= simple_form_for [@room, @room_question] do |f| %>
-                <%= f.association :answers, collection: @room_question.question.answers, label_method: :content, as: :check_boxes, checked: false %>
+                <%= f.association :answers, collection: @room_question.question.answers, label_method: :content, as: :check_boxes, checked: false, as: :radio_buttons, input_html: { class: 'checkbox-style'} %>
                 <%= f.button :submit, class: 'white' %>
                 <% end %>
             </div>
@@ -70,7 +70,7 @@
             </div>
 
               <%= simple_form_for [@room, @room_question] do |f| %>
-                <%= f.association :answers, collection: @room.users, label_method: lambda { |user| "#{user.username}" }, as: :check_boxes, checked: false %>
+                <%= f.association :answers, collection: @room.users, label_method: lambda { |user| "#{user.photo.key}" }, as: :check_boxes, checked: false %>
                 <%= f.button :submit, class: 'white' %>
                 <% end %>
 
