@@ -8,6 +8,7 @@ export default class extends Controller {
   };
 
   connect() {
+    console.log(this.questionCountValue);
     const length = this.questionCountValue.length;
     let currentPage = this.questionCountValue.indexOf(
       window.location.pathname,
