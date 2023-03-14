@@ -45,31 +45,20 @@
         </div>
         <div class="ff-container">
             <h2 class="ff-title-round-2">Who likes <%= @right_answer.first.content %></h2>
-            <div class="ff-grid-round-2">
-                <div class="card-round-2">
-                    <%= cl_image_tag @users[0].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
-                    <p class="ff-ranking-card-name"><%= @users[0].username %></p>
-                </div>
-                <div class="card-round-2">
-                    <%= cl_image_tag @users[1].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
-                    <p class="ff-ranking-card-name"><%= @users[1].username %></p>
-                </div>
             <%= simple_form_for [@room, @room_question] do |f| %>
                 <%= f.association :answers,
                     as: :check_boxes,
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'ff-grid-round-2',
                     item_wrapper_tag: :div,
-                    item_wrapper_class: "image-select card-round-2",
+                    item_wrapper_class: "image-select",
                     collection: @right_collection,
-                    # include_blank: false,
                     legend_tag: false,
                     input_html: { class: "checkbox-second", multiple: true, checked: false },
                     label_method: lambda { |user| image_tag(user.photo.url).html_safe },
-                    hint: "text",
-                    value_method: :id,
-                    class: "form-check" %>
-                <%= f.button :submit, class: 'white' %>
+                    value_method: :id %>
+                <%= f.button :submit, class: 'white', remote: true %>
             <% end %>
-            </div>
         </div>
     </div>
 <% end %>
