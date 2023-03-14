@@ -23,12 +23,19 @@
 
                   <%= simple_form_for [@room, @room_question] do |f| %>
 
-                  <div data-controller: answer-select>
-                    <%= f.association :answers, collection: @room_question.question.answers, label_method: :content, legend_tag: false, as: :radio_buttons, input_html: { class: 'checkbox-style'}, class: "form-check" %>
+                  <div data-controller="answer-select">
+                    <%= f.association :answers,
+                    	  collection: @room_question.question.answers,
+                        label_method: :content,
+                        legend_tag: false,
+                        as: :radio_buttons,
+                        input_html: { class: 'checkbox-style', data: { answer_select_target: "button", action: "change->answer-select#select" } },
+                        class: "form-check" %>
                   </div>
 
                   <div>
-                    <%= f.button :submit, class: 'white' %>
+                    <%= f.button :submit, class: 'white', remote: true %>
+
                   </div>
 
                 <% end %>

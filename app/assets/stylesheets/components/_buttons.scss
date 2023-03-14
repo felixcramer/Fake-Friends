@@ -94,5 +94,8 @@
   font-size: larger;
   // This will override the bootstap color
   color: white !important;
+}
 
+.active-btn+label {
+  background: rgb(0, 165, 0)
 }

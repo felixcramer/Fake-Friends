@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AnswerSelectController from "./answer_select_controller"
+application.register("answer-select", AnswerSelectController)
+
 import ChangeNumberController from "./change_number_controller"
 application.register("change-number", ChangeNumberController)
 
@@ -16,8 +19,8 @@ application.register("change-page-second", ChangePageSecondController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import WaitingRoomSubscriptionController from "./waiting_room_subscription_controller"
-application.register("waiting-room-subscription", WaitingRoomSubscriptionController)
-
 import TransitionController from "./transition_controller"
 application.register("transition", TransitionController)
+
+import WaitingRoomSubscriptionController from "./waiting_room_subscription_controller"
+application.register("waiting-room-subscription", WaitingRoomSubscriptionController)
