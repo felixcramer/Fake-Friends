@@ -21,6 +21,7 @@ class RoomsController < ApplicationController
         @room_question = RoomQuestion.new
         @room_question.question = question
         @room_question.room = @room
+        @room_question.round = 1
         @room_question.save
       end
       @room_user = RoomUser.new
