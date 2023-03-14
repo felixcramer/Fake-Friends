@@ -11,7 +11,7 @@ require "uri"
 
 
 
-puts "cleaning up the database"
+puts "Cleaning up the database!"
 
 User.destroy_all
 Room.destroy_all
@@ -19,7 +19,7 @@ Question.destroy_all
 
 
 
-puts "creating six fake users"
+puts "Creating six fake users!"
 6.times do 
   user = User.new(
     username: Faker::Name.name.to_s,
@@ -32,9 +32,9 @@ puts "creating six fake users"
 end
 puts "#{User.count} users were created."
 puts "..."
-puts "creating the 3 main questions with 4 answers each for first round"
+puts "Creating the 3 main questions with 4 answers each for first round."
 
-first_question = Question.create(content: "What kind of weather do you prefer", round: 1)
+first_question = Question.create(content: "What kind of weather do you prefer?", round: 1)
 first_answer = Answer.new(content: "Endless Rain")
 first_answer.question = first_question
 first_answer.save!
@@ -76,14 +76,7 @@ fourth_answer = Answer.new(content: "Pig")
 fourth_answer.question = third_question
 fourth_answer.save!
 
-puts "..."
-puts "creating the 3 main questions with no answers for second round"
-Question.create(content: "Who likes endless rain?", round: 2)
-Question.create(content: "Whose favorite color is blue?", round: 2)
-Question.create(content: "Who likes crocodiles?", round: 2)
-
 puts "All done!"
-puts "#{Question.where(round: 1).count} questions were created for the first round. #{Answer.count} were created and are attached to those questions, 4 for question"
+puts "#{Question.where(round: 1).count} questions were created for the first round. #{Answer.count} were created and are attached to those questions, 4 for question."
 puts "..."
-puts "#{Question.where(round: 2).count} questions were created for the second round."
 puts "Good luck with the project!"

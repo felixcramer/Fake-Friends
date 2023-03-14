@@ -16,7 +16,7 @@ class RoomsController < ApplicationController
     @room.user = current_user
     @room.room_code = 4.times.map{rand(10)}.join
     if @room.save
-      @questions = Question.all
+      @questions = Question.where(round: 1)
       @questions.each do |question|
         @room_question = RoomQuestion.new
         @room_question.question = question

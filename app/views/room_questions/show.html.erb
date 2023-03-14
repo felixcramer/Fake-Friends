@@ -11,7 +11,7 @@
 
 
 <% if @room_question.question.round == 1  %>
-     <div data-controller="change-page" data-change-page-question-count-value="<%=@array_of_urls%>" data-change-page-url-value="<%= room_ranking_room_path%>">
+     <div data-controller="change-page" data-change-page-question-count-value="<%=@array_of_urls%>" data-change-page-url-value="<%= room_creating_round_path%>">
         <div class="timer-navbar">
             <div class="timer"><p data-controller="change-number" data-change-number-target="number">10</p>
             </div>
@@ -35,13 +35,18 @@
                 <%= link_to enter_room_path, class: "button-round-1" do %>
                 <p><%= @room_question.question.answers[3].content %></p>
                 <% end %>
+                
+                <%= simple_form_for [@room, @room_question] do |f| %>
+                <%= f.association :answers, collection: @room_question.question.answers, label_method: :content, as: :check_boxes, checked: false, as: :radio_buttons, input_html: { class: 'checkbox-style'} %>
+                <%= f.button :submit, class: 'white' %>
+                <% end %>
             </div>
         </div>
     </div>
 <% end %>
 
 <% if @room_question.question.round == 2  %>
-    <div data-controller="change-page" data-change-page-question-count-value="<%=@array_of_urls%>" data-change-page-url-value="<%= room_ranking_room_path%>">
+    <div data-controller="change-page-second" data-change-page-second-question-count-value="<%=@array_of_urls%>" data-change-page-second-url-value="<%= room_ranking_room_path %>">
         <div class="timer-navbar">
             <div class="timer"><p data-controller="change-number" data-change-number-target="number">10</p>
             </div>
@@ -73,7 +78,14 @@
                     <%= cl_image_tag @users[5].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
                     <p class="ff-ranking-card-name"><%= @users[5].username %></p>
                 </div>
+
             </div>
+
+              <%= simple_form_for [@room, @room_question] do |f| %>
+                <%= f.association :answers, collection: @room.users, label_method: lambda { |user| "#{user.photo.key}" }, as: :check_boxes, checked: false %>
+                <%= f.button :submit, class: 'white' %>
+                <% end %>
+
         </div>
     </div>
 <% end %>
