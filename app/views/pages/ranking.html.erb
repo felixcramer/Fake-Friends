@@ -1,22 +1,22 @@
-<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+<%# <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 <div id='stars'></div>
 <div id='stars2'></div>
-<div id='stars3'></div>
-
-
+<div id='stars3'></div> %>
 
 <div class="ff-container">
-  <h1 class="ff-title-ranking">Ranking</h1>
+  <h1 class="ff-title-ranking">Ranking</h1>>
   <div class="ff-ranking-flex">
     <div class="ranking-card">
       <h2 class="ff-ranking-card-title">Best Friend</h2>
-      <%= cl_image_tag @users[0].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
-      <p class="ff-ranking-card-name"><%= @users[0].username %></p>
+      <%= cl_image_tag @winner.user.photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
+      <p class="ff-ranking-card-name"><%= @winner.user.username %></p>
+      <p><%= @winner.counter %> points</p>
     </div>
     <div class="ranking-card">
       <h2 class="ff-ranking-card-title">FakeFriend</h2>
-      <%= cl_image_tag @users[1].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
-      <p class="ff-ranking-card-name"><%= @users[1].username %></p>
+      <%= cl_image_tag @fakefriend.user.photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
+      <p class="ff-ranking-card-name"><%= @fakefriend.user.username %></p>
+      <p><%= @fakefriend.counter %> points</p>
     </div>
     <div class="ranking-card">
       <%= link_to enter_room_path, class: "ranking-button" do %>

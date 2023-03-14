@@ -1,16 +1,9 @@
-
-
-
-
-
-<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+<%# <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 <div id='stars'></div>
 <div id='stars2'></div>
-<div id='stars3'></div>
+<div id='stars3'></div> %>
 
-
-
-<% if @room_question.question.round == 1  %>
+<% if @room_question.round == 1  %>
      <div data-controller="change-page" data-change-page-question-count-value="<%=@array_of_urls%>" data-change-page-url-value="<%= room_creating_round_path%>">
         <div class="timer-navbar">
             <div class="timer"><p data-controller="change-number" data-change-number-target="number">10</p>
@@ -44,14 +37,14 @@
     </div>
 <% end %>
 
-<% if @room_question.question.round == 2  %>
+<% if @room_question.round == 2  %>
     <div data-controller="change-page-second" data-change-page-second-question-count-value="<%=@array_of_urls%>" data-change-page-second-url-value="<%= room_ranking_room_path %>">
         <div class="timer-navbar">
             <div class="timer"><p data-controller="change-number" data-change-number-target="number">10</p>
             </div>
         </div>
         <div class="ff-container">
-            <h2 class="ff-title-round-2"><%= @room_question.question.content %></h2>
+            <h2 class="ff-title-round-2">Who likes <%= @right_answer.first.content %></h2>
             <div class="ff-grid-round-2">
                 <div class="card-round-2">
                     <%= cl_image_tag @users[0].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
@@ -61,30 +54,12 @@
                     <%= cl_image_tag @users[1].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
                     <p class="ff-ranking-card-name"><%= @users[1].username %></p>
                 </div>
-                <div class="card-round-2">
-                    <%= cl_image_tag @users[2].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
-                    <p class="ff-ranking-card-name"><%= @users[2].username %></p>
-                </div>
-                <div class="card-round-2">
-                    <%= cl_image_tag @users[3].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
-                    <p class="ff-ranking-card-name"><%= @users[3].username %></p>
-                </div>
-                <div class="card-round-2">
-                    <%= cl_image_tag @users[4].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
-                    <p class="ff-ranking-card-name"><%= @users[4].username %></p>
-                </div>
-                <div class="card-round-2">
-                    <%= cl_image_tag @users[5].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
-                    <p class="ff-ranking-card-name"><%= @users[5].username %></p>
-                </div>
-
             </div>
 
-              <%= simple_form_for [@room, @room_question] do |f| %>
-                <%= f.association :answers, collection: @room.users, label_method: lambda { |user| "#{user.photo.key}" }, as: :check_boxes, checked: false %>
+            <%= simple_form_for [@room, @room_question] do |f| %>
+                <%= f.association :answers, collection: @right_collection, label_method: lambda { |user| "#{user.username}" }, as: :check_boxes, checked: false %>
                 <%= f.button :submit, class: 'white' %>
-                <% end %>
-
+            <% end %>
         </div>
     </div>
 <% end %>

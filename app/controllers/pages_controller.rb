@@ -25,6 +25,7 @@ class PagesController < ApplicationController
         @room_user = RoomUser.new
         @room_user.room = @room
         @room_user.user = current_user
+        @room_user.counter = 0
         @room_user.save
         WaitingRoomChannel.broadcast_to(
           @room,
@@ -44,55 +45,32 @@ class PagesController < ApplicationController
 
   def post_round
     @room = Room.find(params[:room_id])
-    @questions_first = @room.room_questions
-    @questions_first_cleaned = []
-    @questions_first.each do |q|
-      @questions_first_cleaned << q.question
-    end
+    @room_questions = @room.room_questions
     
-    ##### creating new question after finding the right information
-    
-    @second_round = []
-    @questions_first_cleaned.each do |q|
+    @room_questions.each do |q|
       @random_user = @room.users.sample
       @right_answers = UserAnswer.where(room_id: @room, user_id: @random_user)
       @right_answers.each do |a|
-        if q == a.answer.question
-          new_question = Question.new(content: "Who likes #{a.answer.content}", round: 2)
-          new_question.save
-          new_answer = Answer.new
-          new_answer.content = a.answer.content
-          new_answer.question = new_question
+        if q.question == a.answer.question
+          q.round = 2
+          q.save!
+          new_answer = Answer.new(content: a.answer.content)
+          new_answer.room_question = q
           new_answer.save
-          @second_round << new_question
         end
       end
     end
-
-    ##### creating new room questions for starting second round
-
-    @second_round.each do |q|
-      @room_question = RoomQuestion.new
-      @room_question.question = q
-      @room_question.room = @room
-      @room_question.save
-    end
-
-    @room = Room.find(params[:room_id])
-    @room_questions = @room.room_questions
-    @room_questions_cleaned = []
-    @room_questions.each do |question|
-      if question.question.round == 2
-        @room_questions_cleaned << question
-      end
-    end
-    @room_question = @room_questions_cleaned.first
+    
+    @room_question = @room_questions.first
     redirect_to room_room_question_path(@room, @room_question)
   end
 
 
   def ranking
-    # transitory content for first demo day:
     @users = User.all
+    @room = Room.find(params[:room_id])
+    @room_users_by_ranking = RoomUser.where(room_id: @room).order(counter: :desc)
+    @winner = @room_users_by_ranking.first
+    @fakefriend = @room_users_by_ranking.last
   end
 end

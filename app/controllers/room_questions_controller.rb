@@ -3,8 +3,8 @@ class RoomQuestionsController < ApplicationController
     @users = User.all
     @room = Room.find(params[:room_id])
     @room_question = RoomQuestion.find(params[:id])
-
-    if @room_question.question.round == 1
+    
+    if @room_question.round == 1
       @room_questions = @room_question.room.room_questions
       @array_of_urls = []
       @room_questions.each do |question|
@@ -12,10 +12,18 @@ class RoomQuestionsController < ApplicationController
       end
       @answer = Answer.new
     end
-
-    if @room_question.question.round == 2
+    
+    if @room_question.round == 2
+      @right_answer = Answer.where(room_question_id: @room_question)
       @user_answers = UserAnswer.where(room_id: @room)
-    end
+      @room_users = RoomUser.where(room_id: @room)
+      @right_collection = []
+        @room_users.each do |user|
+          if user.user != current_user
+            @right_collection << user.user
+          end
+        end
+      end
   end 
 
   def create
@@ -25,7 +33,7 @@ class RoomQuestionsController < ApplicationController
     @room = Room.find(params[:room_id])
     @room_question = RoomQuestion.find(params[:id])
 
-    if @room_question.question.round == 1
+    if @room_question.round == 1
       @new_answer = UserAnswer.new
       @new_answer.room = @room
       @new_answer.user = current_user
@@ -35,9 +43,8 @@ class RoomQuestionsController < ApplicationController
       redirect_to room_room_question_path(@room, @room_question)
     end 
 
-    if @room_question.question.round == 2
-      @right_answer = @room_question.answers[0]
-      @user = current_user
+    if @room_question.round == 2
+      @right_answer = Answer.where(room_question_id: @room_question)
       @picked_users = []
       @array_of_ids = params[:room_question][:answer_ids]
       @array_of_ids.delete_at(0)
@@ -45,14 +52,19 @@ class RoomQuestionsController < ApplicationController
         user_from_form = User.find(number)
         @picked_users << user_from_form
       end
+      @room_user = RoomUser.find_by(room_id: @room, user_id: current_user)
       @picked_users.each do |u|
         user_answers_in_room = UserAnswer.where(room_id: @room, user_id: u)
-        user_answers_in_room.each do |a|
-          if a.answer.content == @right_answer.content
-            raise
-          else
-            raise
-          end 
+        user_answers_in_room.each do |user_answer|
+          if user_answer.answer.question == @room_question.question
+            if user_answer.answer.content == @right_answer.first.content
+              @room_user.counter += 1
+              @room_user.save
+            else
+              @room_user.counter -= 1
+              @room_user.save
+            end
+          end
         end
       end
     end 
