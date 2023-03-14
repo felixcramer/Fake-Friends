@@ -82,7 +82,7 @@
   padding: 0px !important;
 }
 
-.checkbox-style+label {
+.checkbox-style + label {
   cursor: pointer;
   background: #ff3152;
   padding: 20px 0 20px;
@@ -96,6 +96,6 @@
   color: white !important;
 }
 
-.active-btn+label {
-  background: rgb(0, 165, 0)
+.active-btn + label {
+  background: rgb(0, 165, 0);
 }

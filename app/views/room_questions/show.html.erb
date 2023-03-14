@@ -54,12 +54,22 @@
                     <%= cl_image_tag @users[1].photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
                     <p class="ff-ranking-card-name"><%= @users[1].username %></p>
                 </div>
-            </div>
-
             <%= simple_form_for [@room, @room_question] do |f| %>
-                <%= f.association :answers, collection: @right_collection, label_method: lambda { |user| "#{user.username}" }, as: :check_boxes, checked: false %>
+                <%= f.association :answers,
+                    as: :check_boxes,
+                    item_wrapper_tag: :div,
+                    item_wrapper_class: "image-select card-round-2",
+                    collection: @right_collection,
+                    # include_blank: false,
+                    legend_tag: false,
+                    input_html: { class: "checkbox-second", multiple: true, checked: false },
+                    label_method: lambda { |user| image_tag(user.photo.url).html_safe },
+                    hint: "text",
+                    value_method: :id,
+                    class: "form-check" %>
                 <%= f.button :submit, class: 'white' %>
             <% end %>
+            </div>
         </div>
     </div>
 <% end %>
