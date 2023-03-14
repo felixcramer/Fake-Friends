@@ -16,7 +16,14 @@ class RoomQuestionsController < ApplicationController
     if @room_question.round == 2
       @right_answer = Answer.where(room_question_id: @room_question)
       @user_answers = UserAnswer.where(room_id: @room)
-    end
+      @room_users = RoomUser.where(room_id: @room)
+      @right_collection = []
+        @room_users.each do |user|
+          if user.user != current_user
+            @right_collection << user.user
+          end
+        end
+      end
   end 
 
   def create
@@ -45,17 +52,17 @@ class RoomQuestionsController < ApplicationController
         user_from_form = User.find(number)
         @picked_users << user_from_form
       end
-      @room_user = RoomUser.where(room_id: @room, user_id: current_user)
-      raise
-      @user_count = 0
+      @room_user = RoomUser.find_by(room_id: @room, user_id: current_user)
       @picked_users.each do |u|
         user_answers_in_room = UserAnswer.where(room_id: @room, user_id: u)
         user_answers_in_room.each do |user_answer|
           if user_answer.answer.question == @room_question.question
             if user_answer.answer.content == @right_answer.first.content
-              @user_count += 1
+              @room_user.counter += 1
+              @room_user.save
             else
-              @user_count -= 1
+              @room_user.counter -= 1
+              @room_user.save
             end
           end
         end

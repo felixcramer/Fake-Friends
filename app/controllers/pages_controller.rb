@@ -25,6 +25,7 @@ class PagesController < ApplicationController
         @room_user = RoomUser.new
         @room_user.room = @room
         @room_user.user = current_user
+        @room_user.counter = 0
         @room_user.save
         WaitingRoomChannel.broadcast_to(
           @room,
@@ -66,7 +67,10 @@ class PagesController < ApplicationController
 
 
   def ranking
-    # transitory content for first demo day:
     @users = User.all
+    @room = Room.find(params[:room_id])
+    @room_users_by_ranking = RoomUser.where(room_id: @room).order(counter: :desc)
+    @winner = @room_users_by_ranking.first
+    @fakefriend = @room_users_by_ranking.last
   end
 end
