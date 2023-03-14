@@ -12,10 +12,25 @@
         <div class="ff-container">
             <h2 class="ff-title-round-2"><%= @room_question.question.content %></h2>
             <div class="ff-flex-round-1">
-                
-                <%= simple_form_for [@room, @room_question] do |f| %>
-                <%= f.association :answers, collection: @room_question.question.answers, label_method: :content, as: :check_boxes, checked: false %>
-                <%= f.button :submit, class: 'white' %>
+                <div class="ranking-card">
+
+                  <%= simple_form_for [@room, @room_question] do |f| %>
+
+                  <div data-controller="answer-select">
+                    <%= f.association :answers,
+                    	  collection: @room_question.question.answers,
+                        label_method: :content,
+                        legend_tag: false,
+                        as: :radio_buttons,
+                        input_html: { class: 'checkbox-style', data: { answer_select_target: "button", action: "change->answer-select#select" } },
+                        class: "form-check" %>
+                  </div>
+
+                  <div>
+                    <%= f.button :submit, class: 'white', remote: true %>
+
+                  </div>
+
                 <% end %>
             </div>
         </div>
