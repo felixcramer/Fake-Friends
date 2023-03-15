@@ -85,7 +85,6 @@ class PagesController < ApplicationController
 
 
   def ranking
-    @users = User.all
     @room = Room.find(params[:room_id])
     @room_users_by_ranking = RoomUser.where(room_id: @room).order(counter: :desc)
     @winner = @room_users_by_ranking.first

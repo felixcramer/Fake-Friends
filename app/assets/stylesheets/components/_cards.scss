@@ -14,3 +14,42 @@
   flex-direction: column;
   align-items: center;
 }
+
+.your-games-card {
+  background: #fff;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.1ms ease-in-out;
+
+  p {
+    color: #212529;
+    margin-bottom: 0px;
+  }
+}
+
+.card-header {
+  height: 80px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 16px 0;
+  color: #fff;
+  clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
+}
+
+.header-standard {
+  background: linear-gradient(135deg, #ff4663, #cc2742);
+}
+
+.card-content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-date {
+  font-style: italic;
+  font-size: 14px;
+}
