@@ -60,7 +60,6 @@ class PagesController < ApplicationController
           end
         end
       end
-      raise
       @room_question = @room_questions.first
       redirect_to room_room_question_path(@room, @room_question)
     else

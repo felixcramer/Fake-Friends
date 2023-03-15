@@ -41,7 +41,7 @@ class RoomQuestionsController < ApplicationController
       @new_answer = UserAnswer.new
       @new_answer.room = @room
       @new_answer.user = current_user
-      @picked_answer = Answer.find(params[:room_question][:answer_ids][0])
+      @picked_answer = Answer.find(params[:room_question][:answer_ids])
       @new_answer.answer = @picked_answer
       @new_answer.save
       # redirect_to room_room_question_path(@room, @room_question)
