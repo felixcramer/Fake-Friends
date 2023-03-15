@@ -7,6 +7,15 @@ class PagesController < ApplicationController
   def informations
   end
 
+  def your_games
+    @user = current_user
+    @user_as_room_users = RoomUser.where(user_id: @user)
+    @rooms_where_user_played = []
+    @user_as_room_users.each do |user|
+      @rooms_where_user_played << user.room
+    end
+  end
+
   def enter_room
   end
 

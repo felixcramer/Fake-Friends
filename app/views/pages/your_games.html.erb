@@ -1,0 +1,42 @@
+<%# <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> %>
+<%# <div id='stars'></div>
+<div id='stars2'></div>
+<div id='stars3'></div> %>
+<div id='title'>
+  <span>
+
+  </span>
+  <br>
+  <span>
+
+  </span>
+</div>
+
+
+<div class="ff-container home-body" data-controller="transition">
+  <div class="transition transition-2" data-transition-target="element"></div>
+  <h1 class="ff-title-medium
+          animate__animated
+          animate__bounce header">All your games:</h1>
+  <% @rooms_where_user_played.each do |room| %>
+    <% room_users_by_ranking = RoomUser.where(room_id: room).order(counter: :desc) %>
+    <% room_user = RoomUser.find_by(room_id: room, user_id: @user) %>
+    <% if room_users_by_ranking.first() == room_user %>
+      <h3><%= room.name %></h3>
+      <p>You were the winner with a score of: <%= room_user.counter %>.</p>
+      <p>Played on <%= room.created_at.to_fs(:long)[0...-6] %>.</p>
+    <% elsif room_users_by_ranking.last() == room_user %>
+      <h3><%= room.name %></h3>
+      <p>Fakefriend! Your score was: <%= room_user.counter %>.</p>
+      <p>Played on <%= room.created_at.to_fs(:long)[0...-6] %>.</p>
+    <% else %>
+      <h3><%= room.name %></h3>
+      <p> No harm done. Your score was: <%= room_user.counter %>.</p>
+      <p>Played on <%= room.created_at.to_fs(:long)[0...-6] %>.</p>
+    <% end %>
+  <% end %>
+
+  <div class="flex-back-link">
+    <%= link_to '<< BACK', root_path, data: { action: "click->transition#pressLink" } %>
+
+</div>
