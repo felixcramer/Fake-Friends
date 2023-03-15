@@ -33,8 +33,6 @@
     </div>
   </div>
   <div class="ff-container">
-    <% if current_user == @room.user %>
-      <%= link_to "Start game",  room_room_question_path(@room, @room.room_questions.first), class: "ff-btn-form-red" %>
-    <% end %>
+    <%= link_to "Start game",  room_room_question_path(@room, @room.room_questions.first), class: "ff-btn-form-red" %>
   </div>
 </div>

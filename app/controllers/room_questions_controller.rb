@@ -3,13 +3,13 @@ class RoomQuestionsController < ApplicationController
     @users = User.all
     @room = Room.find(params[:room_id])
     @room_question = RoomQuestion.find(params[:id])
+    @room_questions = @room_question.room.room_questions
+    @array_of_urls = []
+    @room_questions.each do |question|
+      @array_of_urls << room_room_question_path(question.room, question)
+    end
 
     if @room_question.round == 1
-      @room_questions = @room_question.room.room_questions
-      @array_of_urls = []
-      @room_questions.each do |question|
-        @array_of_urls << room_room_question_path(question.room, question)
-      end
       @answer = Answer.new
     end
 

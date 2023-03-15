@@ -1,8 +1,6 @@
 <div class="ff-container">
   <h1 class="ff-title-ranking">Calculating...</h1>
-   <% if current_user == @room.user %>
-      <%= simple_form_for :user, url: room_post_round_path do |f| %>
+  <%= simple_form_for :user, url: room_post_round_path do |f| %>
       <%= f.submit "Start second round", class: "ff-btn-form-red" %>
-    <% end %>
-    <% end %>
+  <% end %>
 </div>
