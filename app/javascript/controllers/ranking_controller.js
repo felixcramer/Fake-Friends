@@ -9,10 +9,13 @@ export default class extends Controller {
   }
 
   connect() {
+    console.log(this.friendsTarget)
     createConsumer().subscriptions.create(
       { channel: "RankingChannel", id: this.rankingroomIdValue },
-      { received: (data) => console.log(data) }
+      { received: (data) => { this.friendsTarget.innerHTML = data } }
     )
     console.log(`Subscribed to the ranking room with the id ${this.rankingroomIdValue}`)
   }
 }
+
+// { this.friendsTarget.insertAdjecentHTML("beforeend", data) }
