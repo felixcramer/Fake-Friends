@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AddUsernameController from "./add_username_controller"
+application.register("add-username", AddUsernameController)
+
 import AnswerSelectController from "./answer_select_controller"
 application.register("answer-select", AnswerSelectController)
 
