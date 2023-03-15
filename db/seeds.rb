@@ -31,7 +31,7 @@ puts "#{User.count} users were created."
 puts "..."
 puts "Creating the 4 main questions with 4 answers each for first round."
 
-first_question = Question.create(content: "What pet would you most like to have?", round: 1)
+first_question = Question.create(content: "What pet would you most like to have?", round: 1, key_words: "ideal pet")
 first_answer = Answer.new(content: "Dog")
 first_answer.question = first_question
 first_answer.save!
@@ -45,7 +45,7 @@ fourth_answer = Answer.new(content: "Rat")
 fourth_answer.question = first_question
 fourth_answer.save!
 
-second_question = Question.create(content: "What's your biggest fear?", round: 1)
+second_question = Question.create(content: "What's your biggest fear?", round: 1, key_words: "biggest fear")
 first_answer = Answer.new(content: "Spiders")
 first_answer.question = second_question
 first_answer.save!
@@ -59,7 +59,7 @@ fourth_answer = Answer.new(content: "Coding")
 fourth_answer.question = second_question
 fourth_answer.save!
 
-third_question = Question.create(content: "What food could you not live without?", round: 1)
+third_question = Question.create(content: "What food could you not live without?", round: 1, key_words: "most important food")
 first_answer = Answer.new(content: "Cheese")
 first_answer.question = third_question
 first_answer.save!
@@ -73,7 +73,7 @@ fourth_answer = Answer.new(content: "Rice")
 fourth_answer.question = third_question
 fourth_answer.save!
 
-fourth_question = Question.create(content: "If you had to choose, which sense would you give up?", round: 1)
+fourth_question = Question.create(content: "If you had to choose, which sense would you give up?", round: 1, key_words: "least important sense")
 first_answer = Answer.new(content: "Hearing")
 first_answer.question = fourth_question
 first_answer.save!
