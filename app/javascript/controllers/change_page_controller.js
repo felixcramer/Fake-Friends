@@ -7,14 +7,12 @@ export default class extends Controller {
     questionCount: Array,
     url: String,
   };
-
   connect() {
     const length = this.questionCountValue.length;
     let currentPage = this.questionCountValue.indexOf(
       window.location.pathname,
       0
     );
-
     if (currentPage + 1 === length) {
       setTimeout(() => {
         this.buttonTarget.click();
