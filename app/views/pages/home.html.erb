@@ -8,6 +8,7 @@
 
 <div class="home-body" data-controller="transition">
   <div class="transition transition-1"  data-transition-target="element"></div>
+  <div>
   <h1 class="ff-title">FakeFriends</h1>
   <div class="flex-btn-landing">
     <%= link_to enter_room_path, class: "ff-btn-red", data: { action: "click->transition#pressLink" } do %>
@@ -19,5 +20,6 @@
     <%= link_to informations_path, class: "link-how-to-play", data: { action: "click->transition#pressLink" } do %>
       <p>How to play</p>
     <% end %>
+  </div>
   </div>
 </div>
