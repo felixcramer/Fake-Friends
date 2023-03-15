@@ -11,7 +11,7 @@ export default class extends Controller {
     let counter = 0;
     this.photoTargets.forEach((element) => {
       let html = `<p>${this.usernamesValue[counter]}</p>`;
-      element.insertAdjacentHTML("afterend", html);
+      element.insertAdjacentHTML("beforebegin", html);
       counter++;
     });
   }
