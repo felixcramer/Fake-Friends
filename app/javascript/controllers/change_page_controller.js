@@ -17,12 +17,12 @@ export default class extends Controller {
       setTimeout(() => {
         this.buttonTarget.click();
         window.location = this.urlValue;
-      }, 5000);
+      }, 10000);
     } else {
       setTimeout(() => {
         this.buttonTarget.click();
         window.location = this.questionCountValue[currentPage + 1];
-      }, 5000);
+      }, 10000);
     }
   }
 }
