@@ -45,7 +45,7 @@
         </div>
         <div class="ff-container">
         
-            <h2 class="ff-title-round-2">Who likes <%= @right_answer.first.content %></h2>
+            <h2 class="ff-title-round-2">Whose <%= @room_question.question.key_words %> is <%= @right_answer.first.content.downcase %>?</h2>
             <div data-controller="add-username" data-add-username-usernames-value="<%=@array_of_usernames%>">
                 <%= simple_form_for [@room, @room_question] do |f| %>
                     <%= f.association :answers,
