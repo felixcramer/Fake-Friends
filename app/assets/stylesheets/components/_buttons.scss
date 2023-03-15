@@ -5,6 +5,7 @@
   background: #ff3152;
   border-radius: 8px;
   text-align: center;
+  z-index: 10;
 
   p {
     margin: 0;
@@ -24,6 +25,7 @@
   font-size: larger;
   color: #f4f1ff;
   border: none;
+  z-index: 10;
 }
 
 .ff-btn-white {
@@ -33,6 +35,7 @@
   background: #f4f1ff;
   border-radius: 8px;
   text-align: center;
+  z-index: 10;
 
   p {
     margin: 0;
@@ -48,6 +51,7 @@
   background: #ff3152;
   border-radius: 8px;
   text-align: center;
+  z-index: 10;
 
   p {
     margin: 0;
@@ -63,6 +67,7 @@
   background: #ff3152;
   border-radius: 8px;
   text-align: center;
+  z-index: 10;
 
   p {
     margin: 0;
@@ -94,6 +99,7 @@
   font-size: larger;
   // This will override the bootstap color
   color: white !important;
+  z-index: 10;
 }
 
 .active-btn+label {
