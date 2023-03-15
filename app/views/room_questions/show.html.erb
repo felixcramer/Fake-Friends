@@ -27,7 +27,7 @@
                   </div>
 
                   <div>
-                    <%= f.button :submit, class: 'white display-none', remote: true, data: { change_page_target: "button" } %>
+                    <%= f.button :submit, class: 'white', remote: true, data: { change_page_target: "button" } %>
 
                   </div>
 
@@ -45,6 +45,25 @@
         </div>
         <div class="ff-container">
         
+<<<<<<< HEAD
+            <h2 class="ff-title-round-2">Who likes <%= @right_answer.first.content %></h2>
+            <div data-controller="add-username" data-add-username-usernames-value="<%=@array_of_usernames%>">
+                <%= simple_form_for [@room, @room_question] do |f| %>
+                    <%= f.association :answers,
+                        as: :check_boxes,
+                        collection_wrapper_tag: 'div',
+                        collection_wrapper_class: 'ff-grid-round-2',
+                        item_wrapper_tag: :div,
+                        item_wrapper_class: "image-select",
+                        collection: @right_collection,
+                        legend_tag: false,
+                        input_html: { class: "checkbox-second", multiple: true, checked: false, data: { add_username_target: "photo" } },
+                        label_method: lambda { |user| image_tag(user.photo.url).html_safe },
+                        value_method: :id %>
+                    <%= f.button :submit, class: 'white display-none', remote: true, data: { change_page_second_target: "button" } %>
+                <% end %>
+            </div>
+=======
             <h2 class="ff-title-round-2">Whose <%= @room_question.question.key_words %> is <%= @right_answer.first.content.downcase %> ? </h2>
             <%= simple_form_for [@room, @room_question] do |f| %>
                 <%= f.association :answers,
@@ -60,6 +79,7 @@
                     value_method: :id %>
                 <%= f.button :submit, class: 'white display-none', remote: true %>
             <% end %>
+>>>>>>> master
         </div>
     </div>
 <% end %>
