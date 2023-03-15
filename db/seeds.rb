@@ -20,7 +20,7 @@ Question.destroy_all
 
 
 puts "Creating six fake users!"
-6.times do 
+6.times do
   user = User.new(
     username: Faker::Name.name.to_s,
     email: Faker::Internet.email.to_s,
@@ -32,48 +32,62 @@ puts "Creating six fake users!"
 end
 puts "#{User.count} users were created."
 puts "..."
-puts "Creating the 3 main questions with 4 answers each for first round."
+puts "Creating the 4 main questions with 4 answers each for first round."
 
-first_question = Question.create(content: "What kind of weather do you prefer?", round: 1)
-first_answer = Answer.new(content: "Endless Rain")
+first_question = Question.create(content: "What pet would you most like to have?", round: 1)
+first_answer = Answer.new(content: "Dog")
 first_answer.question = first_question
 first_answer.save!
-second_answer = Answer.new(content: "Boiling Heat")
+second_answer = Answer.new(content: "Cat")
 second_answer.question = first_question
 second_answer.save!
-third_answer = Answer.new(content: "Freezing Cold")
+third_answer = Answer.new(content: "Frog")
 third_answer.question = first_question
 third_answer.save!
-fourth_answer = Answer.new(content: "Horrible Humidity")
+fourth_answer = Answer.new(content: "Rat")
 fourth_answer.question = first_question
 fourth_answer.save!
 
-second_question = Question.create(content: "What is your favorite color?", round: 1)
-first_answer = Answer.new(content: "Red")
+second_question = Question.create(content: "What's your biggest fear?", round: 1)
+first_answer = Answer.new(content: "Spiders")
 first_answer.question = second_question
 first_answer.save!
-second_answer = Answer.new(content: "Blue")
+second_answer = Answer.new(content: "Heights")
 second_answer.question = second_question
 second_answer.save!
-third_answer = Answer.new(content: "Green")
+third_answer = Answer.new(content: "Dark")
 third_answer.question = second_question
 third_answer.save!
-fourth_answer = Answer.new(content: "Yellow")
+fourth_answer = Answer.new(content: "Coding")
 fourth_answer.question = second_question
 fourth_answer.save!
 
-third_question = Question.create(content: "What is your favorite animal?", round: 1)
-first_answer = Answer.new(content: "Elefant")
+third_question = Question.create(content: "What food could you not live without?", round: 1)
+first_answer = Answer.new(content: "Cheese")
 first_answer.question = third_question
 first_answer.save!
-second_answer = Answer.new(content: "Crocodile")
+second_answer = Answer.new(content: "Potatoes")
 second_answer.question = third_question
 second_answer.save!
-third_answer = Answer.new(content: "Cat")
+third_answer = Answer.new(content: "Pasta")
 third_answer.question = third_question
 third_answer.save!
-fourth_answer = Answer.new(content: "Pig")
+fourth_answer = Answer.new(content: "Rice")
 fourth_answer.question = third_question
+fourth_answer.save!
+
+fourth_question = Question.create(content: "If you had to choose, which sense would you give up?", round: 1)
+first_answer = Answer.new(content: "Hearing")
+first_answer.question = fourth_question
+first_answer.save!
+second_answer = Answer.new(content: "Sight")
+second_answer.question = fourth_question
+second_answer.save!
+third_answer = Answer.new(content: "Touch")
+third_answer.question = fourth_question
+third_answer.save!
+fourth_answer = Answer.new(content: "Taste")
+fourth_answer.question = fourth_question
 fourth_answer.save!
 
 puts "All done!"
