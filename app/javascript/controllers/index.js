@@ -27,3 +27,6 @@ application.register("transition", TransitionController)
 
 import WaitingRoomSubscriptionController from "./waiting_room_subscription_controller"
 application.register("waiting-room-subscription", WaitingRoomSubscriptionController)
+
+import RankingController from "./ranking_controller"
+application.register("ranking", RankingController)

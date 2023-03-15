@@ -24,3 +24,8 @@ export default class extends Controller {
   //   }
   // }
 }
+
+// RankingRoomChannel.broadcast(
+//   @room,
+// "Hi there is the Fakefriend"
+// )
