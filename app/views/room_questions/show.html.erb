@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="ff-container">
-        
+
             <h2 class="ff-title-round-2">Who likes <%= @right_answer.first.content %></h2>
             <%= simple_form_for [@room, @room_question] do |f| %>
                 <%= f.association :answers,

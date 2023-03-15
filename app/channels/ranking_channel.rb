@@ -1,6 +1,7 @@
 class RankingChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "general"
+    rankingroom = Room.find(params[:id])
+    stream_for rankingroom
   end
 
   def unsubscribed
