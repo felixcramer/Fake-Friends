@@ -24,6 +24,10 @@ class RoomQuestionsController < ApplicationController
           end
         end
       end
+      @array_of_usernames = []
+      @right_collection.each do |user|
+        @array_of_usernames << user.username
+      end
   end
 
   def create

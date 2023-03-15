@@ -28,6 +28,7 @@
 
 .image-select {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   img {
@@ -38,7 +39,8 @@
     margin: 0 auto;
   }
   p {
-    padding: 0;
+    color: #fff;
+    font-style: italic;
   }
 }
 
