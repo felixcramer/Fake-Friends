@@ -56,7 +56,7 @@
                     collection: @right_collection,
                     legend_tag: false,
                     input_html: { class: "checkbox-second", multiple: true, checked: false },
-                    label_method: lambda { |user| image_tag(user.photo.url).html_safe },
+                    label_method: lambda { |user| cl_image_tag(user.photo.key, :aspect_ratio=>"1.0", :height=>300, :width=>300, crop: "fill", gravity: "faces").html_safe },
                     value_method: :id %>
                 <%= f.button :submit, class: 'white display-none', remote: true %>
             <% end %>

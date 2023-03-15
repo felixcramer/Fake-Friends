@@ -10,9 +10,9 @@ export default class extends Controller {
 
   connect() {
     createConsumer().subscriptions.create(
-      { channel: "RankingRoomChannel", id: this.rankingroomIdValue },
+      { channel: "RankingChannel", id: this.rankingroomIdValue },
       { received: (data) => console.log(data) }
     )
-    console.log(`Subscribed to the waiting room with the id ${this.rankingroomIdValue}`)
+    console.log(`Subscribed to the ranking room with the id ${this.rankingroomIdValue}`)
   }
 }
