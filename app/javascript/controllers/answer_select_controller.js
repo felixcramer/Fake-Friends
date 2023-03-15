@@ -72,6 +72,24 @@ export default class extends Controller {
       return 9
     }
 
+    if (number === 13) {
+      return 13
+    }
+
+    if (number === 14) {
+      return 13
+    }
+
+    if (number === 15) {
+      return 13
+    }
+
+    if (number === 16) {
+      return 13
+    }
+
+
+
 
     // switch (number) {
     //   case 1: return 1; break;
