@@ -5,7 +5,7 @@
 
 <div class="ff-container">
   <h1 class="ff-title-ranking">Ranking</h1>>
-  <div class="ff-ranking-flex">
+  <div class="ff-ranking-flex", data-controller="ranking", data-ranking-target="friends">
     <div class="ranking-card">
       <h2 class="ff-ranking-card-title">Best Friend</h2>
       <%= cl_image_tag @winner.user.photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
