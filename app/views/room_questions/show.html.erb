@@ -27,7 +27,7 @@
                   </div>
 
                   <div>
-                    <%= f.button :submit, class: 'white', remote: true, data: { change_page_target: "button" } %>
+                    <%= f.button :submit, class: 'white display-none', remote: true, data: { change_page_target: "button" } %>
 
                   </div>
 
@@ -58,7 +58,7 @@
                     input_html: { class: "checkbox-second", multiple: true, checked: false },
                     label_method: lambda { |user| image_tag(user.photo.url).html_safe },
                     value_method: :id %>
-                <%= f.button :submit, class: 'white', remote: true %>
+                <%= f.button :submit, class: 'white display-none', remote: true %>
             <% end %>
         </div>
     </div>
