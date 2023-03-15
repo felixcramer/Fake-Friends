@@ -48,7 +48,7 @@
               <h3><%= room.name %></h3>
             </div>
             <div class="card-content">
-              <p>Fakefriend! Your just had <%= room_user.counter %> points...</p>
+              <p>Fakefriend! You had just a score of <%= room_user.counter %> points...</p>
               <div class="card-date">
                 <p>Played on <%= room.created_at.to_fs(:long)[0...-6] %> with:</p>
                 <% list_of_names.each do |user| %>
@@ -62,7 +62,7 @@
               <h3><%= room.name %></h3>
             </div>
             <div class="card-content">
-              <p>No harm done. Your had a score of <%= room_user.counter %> points.</p>
+              <p>No harm done. You had a score of <%= room_user.counter %> points.</p>
               <div class="card-date">
                 <p>Played on <%= room.created_at.to_fs(:long)[0...-6] %> with:</p>
                 <% list_of_names.each do |user| %>
