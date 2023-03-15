@@ -9,15 +9,11 @@
 require "faker"
 require "uri"
 
-
-
 puts "Cleaning up the database!"
 
 User.destroy_all
 Room.destroy_all
 Question.destroy_all
-
-
 
 puts "Creating six fake users!"
 6.times do
@@ -30,6 +26,7 @@ puts "Creating six fake users!"
   user.photo.attach(io: file, filename: "file_name")
   user.save!
 end
+
 puts "#{User.count} users were created."
 puts "..."
 puts "Creating the 4 main questions with 4 answers each for first round."
