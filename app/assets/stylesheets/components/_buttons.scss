@@ -104,4 +104,6 @@
 
 .active-btn + label {
   background: #37b24d;
+  animation: bounceIn;
+  animation-duration: 0.8s;
 }

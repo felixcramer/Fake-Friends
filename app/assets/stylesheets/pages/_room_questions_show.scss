@@ -6,6 +6,7 @@
   width: 40px;
   border: solid 2px #ff3152;
   border-radius: 50%;
+
   p {
     margin-bottom: 0;
     color: #ff3152;
@@ -32,6 +33,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   img {
     width: 100px;
     height: 100px;
@@ -39,6 +41,7 @@
     padding: 0px;
     margin: 0 auto;
   }
+
   p {
     color: #fff;
     font-style: italic;
@@ -61,6 +64,8 @@
 .checkbox-second:checked + label {
   border: solid 5px #37b24d;
   border-radius: 50%;
+  animation: flipInX;
+  animation-duration: 0.3s;
 }
 
 // .text-select {
