@@ -26,6 +26,7 @@
   color: #f4f1ff;
   border: none;
   z-index: 10;
+  position: relative;
 }
 
 .ff-btn-white {
@@ -100,6 +101,7 @@
   // This will override the bootstap color
   color: white !important;
   z-index: 10;
+  position: relative;
 }
 
 .active-btn + label {
