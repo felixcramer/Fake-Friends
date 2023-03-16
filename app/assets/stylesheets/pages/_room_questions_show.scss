@@ -24,6 +24,7 @@
   grid-template-columns: 1fr 1fr;
   max-width: 600px;
   margin: 30px auto;
+  align-items: center;
 }
 
 .image-select {
@@ -58,7 +59,7 @@
 }
 
 .checkbox-second:checked + label {
-  border: solid 5px rgb(0, 165, 0);
+  border: solid 5px #37b24d;
   border-radius: 50%;
 }
 

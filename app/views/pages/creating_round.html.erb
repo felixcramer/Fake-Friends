@@ -1,6 +1,12 @@
-<div class="ff-container">
-  <h1 class="ff-title-ranking">Calculating...</h1>
+<div class="ff-container" data-controller="transition">
+  <div class="transition transition-1" data-transition-target="elementLeft"></div>
+  <h1 class="ff-title-ranking">Cool transition text for content: introduction to second round. It shouldn't be a h1!</h1>
+  
+  <div class="loading-information">
+    <div class="loading-icon"><%= show_svg('loading.svg') %></div>
+    <p>Waiting for host to start the round...</p>
+  </div>
   <%= simple_form_for :user, url: room_post_round_path do |f| %>
-      <%= f.submit "Start second round", class: "ff-btn-form-red" %>
+      <%= f.submit "Start game", class: "ff-btn-form-red" %>
   <% end %>
 </div>

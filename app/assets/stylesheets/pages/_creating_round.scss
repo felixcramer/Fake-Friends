@@ -1,0 +1,21 @@
+.loading-information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: -15px;
+
+  p {
+    font-style: italic;
+    font-size: 12px;
+  }
+}
+
+.loading-icon {
+  svg {
+    fill: #fff;
+    height: 60px;
+    width: 60px;
+  }
+}

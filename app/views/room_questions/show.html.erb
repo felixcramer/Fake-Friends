@@ -4,6 +4,7 @@
 
 <% if @room_question.round == 1  %>
      <div data-controller="change-page" data-change-page-question-count-value="<%=@array_of_urls%>" data-change-page-url-value="<%= room_creating_round_path%>">
+        <div class="transition transition-1" data-change-page-target="elementLeft"></div>
         <div class="timer-navbar">
             <div class="timer"><p data-controller="change-number" data-change-number-target="number">10</p>
             </div>
@@ -38,6 +39,7 @@
 
 <% if @room_question.round == 2  %>
     <div data-controller="change-page-second" data-change-page-second-question-count-value="<%=@array_of_urls%>" data-change-page-second-url-value="<%= room_ranking_room_path %>">
+        <div class="transition transition-1" data-change-page-second-target="elementLeft"></div>
         <div class="timer-navbar">
             <div class="timer"><p data-controller="change-number" data-change-number-target="number">10</p>
             </div>

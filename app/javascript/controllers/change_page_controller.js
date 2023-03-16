@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="change-page"
 export default class extends Controller {
-  static targets = ["button"];
+  static targets = ["button", "elementLeft"];
   static values = {
     questionCount: Array,
     url: String,
@@ -15,13 +15,19 @@ export default class extends Controller {
     );
     if (currentPage + 1 === length) {
       setTimeout(() => {
-        this.buttonTarget.click();
-        window.location = this.urlValue;
+        this.elementLeftTarget.classList.add("is-active");
+        setTimeout(() => {
+          this.buttonTarget.click();
+          window.location = this.urlValue;
+        }, 300);
       }, 10000);
     } else {
       setTimeout(() => {
-        this.buttonTarget.click();
-        window.location = this.questionCountValue[currentPage + 1];
+        this.elementLeftTarget.classList.add("is-active");
+        setTimeout(() => {
+          this.buttonTarget.click();
+          window.location = this.questionCountValue[currentPage + 1];
+        }, 300);
       }, 10000);
     }
   }
