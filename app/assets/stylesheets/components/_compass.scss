@@ -1,8 +1,7 @@
 html {
   height: 100%;
-  width: 100%;
   background: radial-gradient(#070415 100%, #070415 100%);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 #stars {
@@ -191,7 +190,7 @@ html {
 #stars:after {
   content: " ";
   position: absolute;
-  top: 2000px;
+  top: 0px;
   width: 1px;
   height: 1px;
   background: transparent;
@@ -434,7 +433,7 @@ html {
 #stars2:after {
   content: " ";
   position: absolute;
-  top: 2000px;
+  top: 0px;
   width: 2px;
   height: 2px;
   background: transparent;
@@ -526,7 +525,7 @@ html {
 #stars3:after {
   content: " ";
   position: absolute;
-  top: 2000px;
+  top: 0px;
   width: 3px;
   height: 3px;
   background: transparent;
@@ -558,11 +557,11 @@ html {
     1890px 577px #fff;
 }
 
-// @keyframes animStar {
-//   from {
-//     transform: translateY(0px);
-//   }
-//   to {
-//     transform: translateY(-2000px);
-//   }
-// }
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
