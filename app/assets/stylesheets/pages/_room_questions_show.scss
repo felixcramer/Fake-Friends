@@ -59,6 +59,8 @@
   padding: 0;
   border: solid 5px transparent;
   border-radius: 50%;
+  z-index: 10;
+  position: relative;
 }
 
 .checkbox-second:checked + label {
