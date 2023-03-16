@@ -5,24 +5,25 @@
 .waiting {
   text-align: center;
   font-size: larger;
+  margin-bottom: 10px;
 }
 
 .player-avatar {
-  width: 100px;
-  height: 100px;
+  width: 95px;
+  height: 95px;
   border-radius: 50%;
 }
 
 .placeholder-avatar {
-  width: 100px;
-  height: 100px;
+  width: 95px;
+  height: 95px;
   border-radius: 50%;
 }
 
 .grid-avatars {
   display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(2, 100px);
+  grid-template-columns: repeat(3, 95px);
+  grid-template-rows: repeat(2, 95px);
   grid-gap: 8px;
 }
 
@@ -36,6 +37,7 @@
 .flex-loader {
   display: flex;
   justify-content: center;
+  margin-top: 30px;
 }
 
 .start-btn-position-bottom {
@@ -62,7 +64,7 @@
   flex-direction: column;
   flex: 1;
   justify-content: space-between;
-  margin-top: 55px;
-  padding-bottom: 15px;
+  margin-top: 15px;
+  padding-bottom: 0px;
   padding-top: 50px;
 }
