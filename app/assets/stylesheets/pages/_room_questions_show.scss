@@ -2,10 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
   border: solid 2px #ff3152;
   border-radius: 50%;
+  font-size: 25px;
 
   p {
     margin-bottom: 0;
@@ -26,6 +27,7 @@
   max-width: 600px;
   margin: 30px auto;
   align-items: center;
+
 }
 
 .image-select {
@@ -53,7 +55,7 @@
   transform: scale(0);
 }
 
-.checkbox-second + label {
+.checkbox-second+label {
   cursor: pointer;
   margin: 0;
   padding: 0;
@@ -61,7 +63,7 @@
   border-radius: 50%;
 }
 
-.checkbox-second:checked + label {
+.checkbox-second:checked+label {
   border: solid 5px #37b24d;
   border-radius: 50%;
   animation: flipInX;

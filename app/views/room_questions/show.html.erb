@@ -5,13 +5,13 @@
 <% if @room_question.round == 1  %>
      <div data-controller="change-page" data-change-page-question-count-value="<%=@array_of_urls%>" data-change-page-url-value="<%= room_creating_round_path%>">
         <div class="transition transition-1" data-change-page-target="elementLeft"></div>
+            <h2 class="ff-title-round-2 mx-4"><%= @room_question.question.content %></h2>
+        <div class="ff-container">
+            <div class="ff-flex-round-1">
         <div class="timer-navbar">
-            <div class="timer"><p data-controller="change-number" data-change-number-target="number">10</p>
+            <div class="timer animate__animated animate__pulse animate__infinite infinite"><p data-controller="change-number" data-change-number-target="number">10</p>
             </div>
         </div>
-        <div class="ff-container">
-            <h2 class="ff-title-round-2"><%= @room_question.question.content %></h2>
-            <div class="ff-flex-round-1">
                 <div class="ranking-card">
 
                   <%= simple_form_for [@room, @room_question] do |f| %>
@@ -44,8 +44,8 @@
             <div class="timer"><p data-controller="change-number" data-change-number-target="number">10</p>
             </div>
         </div>
+            <h2 class="ff-title-round-2 mx-4">Whose <%= @room_question.question.key_words %> is <%= @right_answer.first.content.downcase %>?</h2>
         <div class="ff-container">
-            <h2 class="ff-title-round-2">Whose <%= @room_question.question.key_words %> is <%= @right_answer.first.content.downcase %>?</h2>
             <div data-controller="add-username" data-add-username-usernames-value="<%=@array_of_usernames%>">
             <%= simple_form_for [@room, @room_question] do |f| %>
                 <%= f.association :answers,

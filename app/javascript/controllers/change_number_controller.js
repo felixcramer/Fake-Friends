@@ -8,12 +8,14 @@ export default class extends Controller {
     setInterval(() => {
       this.changingNumber();
     }, 1000);
+
   }
   changingNumber() {
     if (this.numberTarget.innerHTML === 0) {
       clearInterval(timer);
     } else {
       this.numberTarget.innerHTML -= 1;
+
     }
   }
 }
