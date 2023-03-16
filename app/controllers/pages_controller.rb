@@ -33,7 +33,7 @@ class PagesController < ApplicationController
         @room_user = RoomUser.new
         @room_user.room = @room
         @room_user.user = current_user
-        @room_user.counter = 0
+        @room_user.counter = 10
         @room_user.save
         WaitingRoomChannel.broadcast_to(
           @room,

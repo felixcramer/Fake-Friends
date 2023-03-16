@@ -8,7 +8,7 @@
           animate__animated
           animate__bounce header">All your games:</h1>
   <div class="ff-grid-your-games">
-    <% @rooms_where_user_played.each do |room| %>
+    <% @rooms_where_user_played.reverse.each do |room| %>
       <% room_users_by_ranking = RoomUser.where(room_id: room).order(counter: :desc) %>
       <% room_user = RoomUser.find_by(room_id: room, user_id: @user) %>
       <% list_of_names = [] %>
