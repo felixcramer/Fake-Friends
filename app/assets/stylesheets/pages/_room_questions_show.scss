@@ -6,6 +6,7 @@
   width: 40px;
   border: solid 2px #ff3152;
   border-radius: 50%;
+
   p {
     margin-bottom: 0;
     color: #ff3152;
@@ -31,6 +32,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   img {
     width: 100px;
     height: 100px;
@@ -38,6 +40,7 @@
     padding: 0px;
     margin: 0 auto;
   }
+
   p {
     color: #fff;
     font-style: italic;
@@ -49,7 +52,7 @@
   transform: scale(0);
 }
 
-.checkbox-second + label {
+.checkbox-second+label {
   cursor: pointer;
   margin: 0;
   padding: 0;
@@ -57,9 +60,11 @@
   border-radius: 50%;
 }
 
-.checkbox-second:checked + label {
+.checkbox-second:checked+label {
   border: solid 5px rgb(0, 165, 0);
   border-radius: 50%;
+  animation: flipInX;
+  animation-duration: 0.3s;
 }
 
 // .text-select {
