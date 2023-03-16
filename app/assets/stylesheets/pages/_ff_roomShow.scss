@@ -8,25 +8,29 @@
 }
 
 .player-avatar {
-  width: 75px;
-  height: 75px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
 }
 
 .placeholder-avatar {
-  width: 75px;
-  height: 75px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
 }
 
 .grid-avatars {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 15px;
+  grid-template-columns: repeat(3, 110px);
+  grid-template-rows: repeat(2, 110px);
+  grid-gap: 15px;
 }
 
 .avatar-container {
+  display: flex;
+  justify-content: center;
   margin: 0px 20px;
+
 }
 
 .flex-loader {
