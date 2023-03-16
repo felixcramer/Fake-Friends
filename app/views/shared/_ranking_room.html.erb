@@ -5,7 +5,7 @@
 <div class="ranking-card">
 <div>
   <h2 class="ff-ranking-card-title">Best Friend</h2>
-  <%= cl_image_tag winner.user.photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
+  <%= cl_image_tag winner.user.photo.key, :aspect_ratio=>"1.0", :height=>300, :width=>300, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
   <p class="ff-ranking-card-name"><%= winner.user.username %></p>
   <p><%= winner.counter %> points</p>
 </div>
@@ -13,7 +13,7 @@
 <div>
 <div class="ranking-card">
   <h2 class="ff-ranking-card-title">FakeFriend</h2>
-  <%= cl_image_tag fakefriend.user.photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
+  <%= cl_image_tag fakefriend.user.photo.key, :aspect_ratio=>"1.0", :height=>300, :width=>300, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
   <p class="ff-ranking-card-name"><%= fakefriend.user.username %></p>
   <p><%= fakefriend.counter %> points</p>
 </div>
