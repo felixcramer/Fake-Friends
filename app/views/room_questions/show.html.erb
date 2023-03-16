@@ -3,64 +3,84 @@
 <div id='stars3'></div>
 
 <% if @room_question.round == 1  %>
-     <div data-controller="change-page" data-change-page-question-count-value="<%=@array_of_urls%>" data-change-page-url-value="<%= room_creating_round_path%>">
-        <div class="transition transition-1" data-change-page-target="elementLeft"></div>
-            <h2 class="ff-title-round-2 mx-4"><%= @room_question.question.content %></h2>
-        <div class="ff-container">
-            <div class="ff-flex-round-1">
-        <div class="timer-navbar">
-            <div class="timer animate__animated animate__pulse animate__infinite infinite"><p data-controller="change-number" data-change-number-target="number">10</p>
-            </div>
-        </div>
-                <div class="ranking-card">
+  <div data-controller="change-page"
+        data-change-page-question-count-value="<%=@array_of_urls%>"
+        data-change-page-url-value="<%= room_creating_round_path%>">
 
-                  <%= simple_form_for [@room, @room_question] do |f| %>
-
-                  <div data-controller="answer-select">
-                    <%= f.association :answers,
-                      collection: @room_question.question.answers,
-                      label_method: :content,
-                      legend_tag: false,
-                      as: :radio_buttons,
-                      input_html: { class: 'checkbox-style', data: { answer_select_target: "button", action: "change->answer-select#select" } },
-                      class: "form-check" %>
-                  </div>
-
-                  <div>
-                    <%= f.button :submit, class: 'white display-none', remote: true, data: { change_page_target: "button" } %>
-
-                  </div>
-
-                <% end %>
-            </div>
-        </div>
+    <div class="transition transition-1"
+        data-change-page-target="elementLeft">
     </div>
+
+    <h2 class="ff-title-round-2 mt-5 mx-3"><%= @room_question.question.content %></h2>
+
+    <div class="ff-container">
+
+      <div class="timer-navbar">
+        <div class="timer animate__animated animate__pulse animate__infinite	infinite">
+          <p data-controller="change-number"
+            data-change-number-target="number">10
+          </p>
+        </div>
+      </div>
+
+      <div class="ff-flex-round-1">
+        <div class="ranking-card">
+
+          <%= simple_form_for [@room, @room_question] do |f| %>
+            <div data-controller="answer-select">
+              <%= f.association :answers,
+                collection: @room_question.question.answers,
+                label_method: :content,
+                legend_tag: false,
+                as: :radio_buttons,
+                input_html: { class: 'checkbox-style', data: { answer_select_target: "button", action: "change->answer-select#select" } },
+                class: "form-check" %>
+            </div>
+
+            <div>
+              <%= f.button :submit, class: 'white display-none', remote: true, data: { change_page_target: "button" } %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 <% if @room_question.round == 2  %>
-    <div data-controller="change-page-second" data-change-page-second-question-count-value="<%=@array_of_urls%>" data-change-page-second-url-value="<%= room_ranking_room_path %>">
-        <div class="transition transition-1" data-change-page-second-target="elementLeft"></div>
-        <div class="timer-navbar">
-            <div class="timer"><p data-controller="change-number" data-change-number-target="number">10</p>
-            </div>
-        </div>
-            <h2 class="ff-title-round-2 mx-4">Whose <%= @room_question.question.key_words %> is <%= @right_answer.first.content.downcase %>?</h2>
-        <div class="ff-container">
-            <div data-controller="add-username" data-add-username-usernames-value="<%=@array_of_usernames%>">
-            <%= simple_form_for [@room, @room_question] do |f| %>
-                <%= f.association :answers,
-                    as: :check_boxes,
-                    collection_wrapper_tag: 'div',
-                    collection_wrapper_class: 'ff-grid-round-2',
-                    item_wrapper_tag: :div,
-                    item_wrapper_class: "image-select",
-                    collection: @right_collection,
-                    legend_tag: false,
-                    input_html: { class: "checkbox-second", multiple: true, checked: false, data: { add_username_target: "photo" } },
-                    label_method: lambda { |user| cl_image_tag(user.photo.key, :aspect_ratio=>"1.0", :height=>300, :width=>300, crop: "fill", gravity: "faces").html_safe },
-                    value_method: :id %>
-                <%= f.button :submit, class: 'white display-none', remote: true, data: { change_page_second_target: "button" } %>
-            <% end %>
-        </div>
+  <div data-controller="change-page-second"
+      data-change-page-second-question-count-value="<%=@array_of_urls%>"
+      data-change-page-second-url-value="<%= room_ranking_room_path %>">
+    <div class="transition transition-1" data-change-page-second-target="elementLeft"></div>
+
+    <h2 class="ff-title-round-2 mt-5 mx-3">Whose <%= @room_question.question.key_words %> is <%= @right_answer.first.content.downcase %>?</h2>
+
+    <div class="timer-navbar">
+      <div class="timer animate__animated animate__pulse animate__infinite	infinite">
+        <p data-controller="change-number"
+          data-change-number-target="number">10
+        </p>
+      </div>
+    </div>
+
+    <div class="ff-container">
+
+      <div data-controller="add-username"
+          data-add-username-usernames-value="<%=@array_of_usernames%>">
+        <%= simple_form_for [@room, @room_question] do |f| %>
+          <%= f.association :answers,
+              as: :check_boxes,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'ff-grid-round-2',
+              item_wrapper_tag: :div,
+              item_wrapper_class: "image-select",
+              collection: @right_collection,
+              legend_tag: false,
+              input_html: { class: "checkbox-second", multiple: true, checked: false, data: { add_username_target: "photo" } },
+              label_method: lambda { |user| cl_image_tag(user.photo.key, :aspect_ratio=>"1.0", :height=>300, :width=>300, crop: "fill", gravity: "faces").html_safe },
+              value_method: :id %>
+          <%= f.button :submit, class: 'white display-none', remote: true, data: { change_page_second_target: "button" } %>
+        <% end %>
+      </div>
     </div>
 <% end %>
