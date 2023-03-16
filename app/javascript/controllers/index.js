@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AddUsernameController from "./add_username_controller"
+application.register("add-username", AddUsernameController)
+
 import AnswerSelectController from "./answer_select_controller"
 application.register("answer-select", AnswerSelectController)
 
@@ -18,6 +21,9 @@ application.register("change-page-second", ChangePageSecondController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import RankingController from "./ranking_controller"
+application.register("ranking", RankingController)
 
 import TransitionController from "./transition_controller"
 application.register("transition", TransitionController)
