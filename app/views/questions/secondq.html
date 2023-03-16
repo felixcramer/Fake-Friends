@@ -1,9 +1,0 @@
-<% collection = [] %>
-<% @question.answers.each do |answer| %>
-<% collection << answer.content %>
-<% end %>
-
-<%= simple_form_for [@user, @user_answer] do |f| %>
-  <%= f.input :answer, as: :check_boxes, collection: collection, include_hidden: false %>
-  <%= f.button :submit %>
-<% end %>

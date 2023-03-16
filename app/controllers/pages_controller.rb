@@ -7,6 +7,15 @@ class PagesController < ApplicationController
   def informations
   end
 
+  def your_games
+    @user = current_user
+    @user_as_room_users = RoomUser.where(user_id: @user)
+    @rooms_where_user_played = []
+    @user_as_room_users.each do |user|
+      @rooms_where_user_played << user.room
+    end
+  end
+
   def enter_room
   end
 
@@ -76,7 +85,6 @@ class PagesController < ApplicationController
 
 
   def ranking
-    @users = User.all
     @room = Room.find(params[:room_id])
     @room_users_by_ranking = RoomUser.where(room_id: @room).order(counter: :desc)
     @winner = @room_users_by_ranking.first
