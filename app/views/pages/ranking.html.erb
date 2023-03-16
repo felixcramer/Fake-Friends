@@ -9,6 +9,7 @@
     <div data-controller="ranking"
          data-ranking-target="friends"
          data-ranking-rankingroom-id-value="<%= @room.id %>">
+      <!-- HERE THE PARTIAL WILL BE INSERTED -->
       <%= render "shared/ranking_room", winner: @winner, fakefriend: @fakefriend%>
     </div>
 
