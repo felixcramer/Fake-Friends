@@ -6,18 +6,13 @@
 <div class="ff-container">
   <h1 class="ff-title-ranking">Ranking</h1>
   <div class="ff-ranking-flex">
-    <div class="ranking-card">
-      <h2 class="ff-ranking-card-title">Best Friend</h2>
-      <%= cl_image_tag @winner.user.photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
-      <p class="ff-ranking-card-name"><%= @winner.user.username %></p>
-      <p><%= @winner.counter %> points</p>
+
+    <div data-controller="ranking"
+         data-ranking-target="friends"
+         data-ranking-rankingroom-id-value="<%= @room.id %>">
+      <%= render "shared/ranking_room", winner: @winner, fakefriend: @fakefriend%>
     </div>
-    <div class="ranking-card">
-      <h2 class="ff-ranking-card-title">FakeFriend</h2>
-      <%= cl_image_tag @fakefriend.user.photo.key, crop: "fill", gravity: "faces", class:"ranking-avatar", alt:"player-img" %>
-      <p class="ff-ranking-card-name"><%= @fakefriend.user.username %></p>
-      <p><%= @fakefriend.counter %> points</p>
-    </div>
+
     <div class="ranking-card">
       <%= link_to enter_room_path, class: "ranking-button" do %>
       <p>Play again?</p>

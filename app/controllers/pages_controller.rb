@@ -55,7 +55,7 @@ class PagesController < ApplicationController
     @room = Room.find(params[:room_id])
     @room_questions = @room.room_questions
     if current_user == @room.user
-      
+
       @room_questions.each do |q|
         @random_user = @room.users.sample
         @right_answers = UserAnswer.where(room_id: @room, user_id: @random_user)
@@ -80,7 +80,7 @@ class PagesController < ApplicationController
         redirect_to room_room_question_path(@room, @room_question)
       end
     end
-    
+
   end
 
 
@@ -89,5 +89,12 @@ class PagesController < ApplicationController
     @room_users_by_ranking = RoomUser.where(room_id: @room).order(counter: :desc)
     @winner = @room_users_by_ranking.first
     @fakefriend = @room_users_by_ranking.last
+    RankingChannel.broadcast_to(
+      @room,
+      render_to_string(
+        partial: "shared/ranking_room",
+        locals: { winner: @winner, fakefriend: @fakefriend }
+      )
+    )
   end
 end
