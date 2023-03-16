@@ -25,6 +25,7 @@
   grid-template-columns: 1fr 1fr;
   max-width: 600px;
   margin: 30px auto;
+  align-items: center;
 }
 
 .image-select {
@@ -52,7 +53,7 @@
   transform: scale(0);
 }
 
-.checkbox-second+label {
+.checkbox-second + label {
   cursor: pointer;
   margin: 0;
   padding: 0;
@@ -60,8 +61,8 @@
   border-radius: 50%;
 }
 
-.checkbox-second:checked+label {
-  border: solid 5px rgb(0, 165, 0);
+.checkbox-second:checked + label {
+  border: solid 5px #37b24d;
   border-radius: 50%;
   animation: flipInX;
   animation-duration: 0.3s;

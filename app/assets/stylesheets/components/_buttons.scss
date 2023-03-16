@@ -87,7 +87,7 @@
   padding: 0px !important;
 }
 
-.checkbox-style+label {
+.checkbox-style + label {
   cursor: pointer;
   background: #ff3152;
   padding: 20px 0 20px;
@@ -102,8 +102,8 @@
   z-index: 10;
 }
 
-.active-btn+label {
-  background: rgb(0, 165, 0);
+.active-btn + label {
+  background: #37b24d;
   animation: bounceIn;
   animation-duration: 0.8s;
 }
