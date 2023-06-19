@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  get 'informations', to: 'pages#informations'
+  get "about", to: "pages#about"
   get "your_games", to: "pages#your_games", as: "your_games"
   get "enter_room", to: "pages#enter_room", as: "enter_room"
   post "post_form", to: "pages#post_form", as: "post_form"
