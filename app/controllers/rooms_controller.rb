@@ -47,7 +47,7 @@ class RoomsController < ApplicationController
           if q.question == a.answer.question
             q.round = 2
             q.save!
-            new_answer = Answer.new(content: a.answer.content)
+            new_answer = Answer.new(content: a.answer.content, plural: a.answer.plural)
             new_answer.room_question = q
             new_answer.save
           end

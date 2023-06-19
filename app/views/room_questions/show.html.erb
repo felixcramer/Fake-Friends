@@ -53,7 +53,7 @@
       data-change-page-second-url-value="<%= room_ranking_room_path %>">
     <div class="transition transition-1" data-change-page-second-target="elementLeft"></div>
 
-    <h2 class="ff-title-round-2 mt-5 mx-3">Whose <%= @room_question.question.key_words %> is <%= @right_answer.first.content.downcase %>?</h2>
+    <h2 class="ff-title-round-2 mt-5 mx-3">Whose <%= @room_question.question.key_words %> <%= @right_answer.first.plural ? "are" : "is"%> <%= @right_answer.first.content.downcase %>?</h2>
 
     <div class="timer-navbar">
       <div class="timer animate__animated animate__pulse animate__infinite	infinite">

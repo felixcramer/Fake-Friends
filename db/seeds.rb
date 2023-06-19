@@ -32,27 +32,27 @@ puts "..."
 puts "Creating the 4 main questions with 4 answers per questions for first round."
 
 first_question = Question.create(content: "What pet would you most like to have?", round: 1, key_words: "ideal pet")
-first_answer = Answer.new(content: "Dog")
+first_answer = Answer.new(content: "Dogs", plural: true)
 first_answer.question = first_question
 first_answer.save!
-second_answer = Answer.new(content: "Cat")
+second_answer = Answer.new(content: "Cats", plural: true)
 second_answer.question = first_question
 second_answer.save!
-third_answer = Answer.new(content: "Frog")
+third_answer = Answer.new(content: "Frogs", plural: true)
 third_answer.question = first_question
 third_answer.save!
-fourth_answer = Answer.new(content: "Rat")
+fourth_answer = Answer.new(content: "Rats", plural: true)
 fourth_answer.question = first_question
 fourth_answer.save!
 
 second_question = Question.create(content: "What's your biggest fear?", round: 1, key_words: "biggest fear")
-first_answer = Answer.new(content: "Spiders")
+first_answer = Answer.new(content: "Spiders", plural: true)
 first_answer.question = second_question
 first_answer.save!
-second_answer = Answer.new(content: "Heights")
+second_answer = Answer.new(content: "Heights", plural: true)
 second_answer.question = second_question
 second_answer.save!
-third_answer = Answer.new(content: "Dark")
+third_answer = Answer.new(content: "Darkness")
 third_answer.question = second_question
 third_answer.save!
 fourth_answer = Answer.new(content: "Coding")
@@ -63,7 +63,7 @@ third_question = Question.create(content: "What food could you not live without?
 first_answer = Answer.new(content: "Cheese")
 first_answer.question = third_question
 first_answer.save!
-second_answer = Answer.new(content: "Potatoes")
+second_answer = Answer.new(content: "Potatoes", plural: true)
 second_answer.question = third_question
 second_answer.save!
 third_answer = Answer.new(content: "Pasta")
@@ -90,4 +90,4 @@ fourth_answer.save!
 puts "All done!"
 puts "#{Question.where(round: 1).count} questions were created for the first round. #{Answer.count} were created and are attached to those questions, 4 for question."
 puts "..."
-puts "Congrats for finishing up the project, keep up the good work"
+puts "Congrats for finishing up the project, keep up the good work!"
