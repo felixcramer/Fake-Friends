@@ -1,0 +1,69 @@
+<div id='stars'></div>
+<div id='stars2'></div>
+<div id='stars3'></div>
+
+<div class="ff-games-container" data-controller="transition">
+  <div class="transition transition-2" data-transition-target="elementRight"></div>
+  <h1 class="ff-title-medium
+          animate__animated
+          animate__bounce header">All your games:</h1>
+  <div class="ff-grid-your-games">
+    <% @rooms_where_user_played.reverse.each do |room| %>
+      <% room_users_by_ranking = RoomUser.where(room_id: room).order(counter: :desc) %>
+      <% room_user = RoomUser.find_by(room_id: room, user_id: @user) %>
+      <% list_of_names = [] %>
+      <% RoomUser.where(room_id: room).each do |user| %>
+        <% if user.user != current_user %>
+          <% list_of_names << user.user.username %>
+        <% end %>
+      <% end %>
+      <% if room_users_by_ranking.first() == room_user %>
+        <div class="your-games-card">
+          <div class="card-header header-standard">
+            <h3><%= room.name %></h3>
+          </div>
+          <div class="card-content">
+            <p>You were the winner with a score of <%= room_user.counter %> points!</p>
+            <div class="card-date">
+              <p>Played on <%= room.created_at.to_fs(:long)[0...-6] %> with:</p>
+              <% list_of_names.each do |user| %>
+                  <p><%= user %></p>
+              <% end %>
+            </div>
+          </div>
+        <% elsif room_users_by_ranking.last() == room_user %>
+          <div class="your-games-card">
+            <div class="card-header header-standard">
+              <h3><%= room.name %></h3>
+            </div>
+            <div class="card-content">
+              <p>Fakefriend! You had just a score of <%= room_user.counter %> points...</p>
+              <div class="card-date">
+                <p>Played on <%= room.created_at.to_fs(:long)[0...-6] %> with:</p>
+                <% list_of_names.each do |user| %>
+                    <p><%= user %></p>
+                <% end %>
+              </div>
+            </div>
+        <% else %>
+          <div class="your-games-card">
+            <div class="card-header header-standard">
+              <h3><%= room.name %></h3>
+            </div>
+            <div class="card-content">
+              <p>No harm done. You had a score of <%= room_user.counter %> points.</p>
+              <div class="card-date">
+                <p>Played on <%= room.created_at.to_fs(:long)[0...-6] %> with:</p>
+                <% list_of_names.each do |user| %>
+                    <p><%= user %></p>
+                <% end %>
+              </div>
+            </div>
+        <% end %>
+        </div>
+    <% end %>
+  </div>
+
+  <div class="flex-back-link">
+    <%= link_to '<< BACK', root_path, data: { action: "click->transition#pressLinkRight" } %>
+</div>

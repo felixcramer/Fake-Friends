@@ -1,15 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :about]
 
-  def your_games
-    @user = current_user
-    @user_as_room_users = RoomUser.where(user_id: @user)
-    @rooms_where_user_played = []
-    @user_as_room_users.each do |user|
-      @rooms_where_user_played << user.room
-    end
-  end
-
   def post_join_room
     @room = Room.find_by(room_code: params[:user][:name])
 
