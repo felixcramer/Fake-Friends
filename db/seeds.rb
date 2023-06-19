@@ -9,14 +9,14 @@
 require "faker"
 require "uri"
 
-puts "Cleaning up the database!"
+puts "Cleaning up the database..."
 
 User.destroy_all
 Room.destroy_all
 Question.destroy_all
 
-puts "Creating six fake users!"
-6.times do
+puts "Creating four fake users..."
+4.times do
   user = User.new(
     username: Faker::Name.name.to_s,
     email: Faker::Internet.email.to_s,
@@ -29,7 +29,7 @@ end
 
 puts "#{User.count} users were created."
 puts "..."
-puts "Creating the 4 main questions with 4 answers each for first round."
+puts "Creating the 4 main questions with 4 answers per questions for first round."
 
 first_question = Question.create(content: "What pet would you most like to have?", round: 1, key_words: "ideal pet")
 first_answer = Answer.new(content: "Dog")
@@ -90,4 +90,4 @@ fourth_answer.save!
 puts "All done!"
 puts "#{Question.where(round: 1).count} questions were created for the first round. #{Answer.count} were created and are attached to those questions, 4 for question."
 puts "..."
-puts "Good luck with the project!"
+puts "Congrats for finishing up the project, keep up the good work"

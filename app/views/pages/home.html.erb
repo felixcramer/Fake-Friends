@@ -15,7 +15,7 @@
   <div class="transition transition-1"  data-transition-target="elementLeft"></div>
   <h1 class="ff-title">FakeFriends</h1>
   <div class="flex-btn-landing">
-    <%= link_to enter_room_path, class: "ff-btn-red", data: { action: "click->transition#pressLinkLeft" } do %>
+    <%= link_to join_room_path, class: "ff-btn-red", data: { action: "click->transition#pressLinkLeft" } do %>
       <p>Join a game</p>
     <% end %>
     <%= link_to new_room_path, class: "ff-btn-white", data: { action: "click->transition#pressLinkLeft" } do %>

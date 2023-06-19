@@ -7,14 +7,14 @@
   <div class="ff-ranking-flex">
 
     <div data-controller="ranking"
-         data-ranking-target="friends"
-         data-ranking-rankingroom-id-value="<%= @room.id %>">
+      data-ranking-target="friends"
+      data-ranking-rankingroom-id-value="<%= @room.id %>">
       <!-- HERE THE PARTIAL WILL BE INSERTED -->
       <%= render "shared/ranking_room", winner: @winner, fakefriend: @fakefriend%>
     </div>
 
     <div class="ranking-card">
-      <%= link_to enter_room_path, class: "ranking-button" do %>
+      <%= link_to new_room_path, class: "ranking-button" do %>
       <p>Play again?</p>
       <% end %>
     </div>

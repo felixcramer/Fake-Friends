@@ -7,7 +7,7 @@
   <div class="transition transition-2" data-transition-target="elementRight"></div>
   <div class="form-distance-above">
     <h2 class="ff-title-medium ff-margin-v-50">Join Room</h2>
-    <%= simple_form_for :user, url: post_form_path do |f| %>
+    <%= simple_form_for :user, url: post_join_room_path do |f| %>
       <%= f.input :name, label: false, placeholder: "Enter room code...", input_html: { value: nil } %>
       <%= f.submit "Enter", class: "ff-btn-form-red" %>
     <% end %>
