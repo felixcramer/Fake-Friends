@@ -1,6 +1,7 @@
 class UserAnswersController < ApplicationController
   def create
     new_answer = UserAnswer.new(user: current_user, answer: params[:user_answer][:answer])
+    raise
     new_answer.save
   end
 

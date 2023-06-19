@@ -12,6 +12,8 @@
   width: 95px;
   height: 95px;
   border-radius: 50%;
+  position: relative;
+  z-index: 10;
 }
 
 .placeholder-avatar {
@@ -31,7 +33,6 @@
   display: flex;
   justify-content: center;
   margin: 0px 20px;
-
 }
 
 .flex-loader {
