@@ -29,6 +29,17 @@ class RoomQuestionsController < ApplicationController
 
       # Data to be transfered to the add_username Stimulus controller
       @user_as_answers_usernames = @user_as_answers.map { |user| user.username }
+
+      # Data for showing the users who answered the @right_answer
+      @users_with_right_answer = []
+      RoomUser.where(room_id: @room).each do |room_user|
+        user_answers_in_room = UserAnswer.where(room_id: @room, user_id: room_user.user.id)
+        user_answers_in_room.each do |answer|
+          if answer.answer.content == @right_answer.first.content
+            @users_with_right_answer << room_user.user
+          end
+        end
+      end
     end
   end
 

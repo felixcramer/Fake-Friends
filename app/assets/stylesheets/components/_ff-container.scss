@@ -1,3 +1,7 @@
 .ff-container {
   margin: 0px 50px 0px 50px;
+
+  // for the transition effect in the second round
+  opacity: 1;
+  transition: opacity 1s;
 }

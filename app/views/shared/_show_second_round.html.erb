@@ -8,7 +8,18 @@
 
   <%= render "shared/timer_navbar" %>
 
-  <div class="ff-container">
+  <div class="ff-container hidden" data-change-page-target="divHidden">
+    <div class="ff-grid-round-2">
+      <% @users_with_right_answer.each do |user|%>
+        <div class="image-select">
+        <span class="image-select-username"><%= user.username %></span>
+        <%= cl_image_tag(user.photo.key, :aspect_ratio=>"1.0", :height=>300, :width=>300, crop: "fill", gravity: "faces", class: "right-answer") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="ff-container" data-change-page-target="divToHide">
     <div data-controller="add-username"
         data-add-username-usernames-value="<%=@user_as_answers_usernames%>">
       <%= simple_form_for [@room, @room_question] do |f| %>
