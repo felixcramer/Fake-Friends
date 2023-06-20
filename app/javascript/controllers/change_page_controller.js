@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="change-page"
 export default class extends Controller {
-  static targets = ["button", "elementLeft", "divHidden", "divToHide"];
+  static targets = ["button", "elementLeft", "title", "divHidden", "divToHide"];
   static values = {
     // Array containing all urls of the room associated
     // with the room_questions
@@ -21,50 +21,50 @@ export default class extends Controller {
     // we currently are
     if (this.buttonTarget.dataset.round === "1") {
       if (currentPage + 1 === this.questionsArrayValue.length) {
-        setTimeout(() => {
-          this.elementLeftTarget.classList.add("is-active");
-          setTimeout(() => {
-            this.buttonTarget.click();
-            window.location = this.finalUrlFirstValue;
-          }, 300);
-        }, 5000);
+        this.firstRoundTemplate(this.finalUrlFirstValue);
       } else {
-        setTimeout(() => {
-          this.elementLeftTarget.classList.add("is-active");
-          setTimeout(() => {
-            this.buttonTarget.click();
-            window.location = this.questionsArrayValue[currentPage + 1];
-          }, 300);
-        }, 5000);
+        this.firstRoundTemplate(this.questionsArrayValue[currentPage + 1]);
       }
     }
 
     if (this.buttonTarget.dataset.round === "2") {
       if (currentPage + 1 === this.questionsArrayValue.length) {
-        setTimeout(() => {
-          this.buttonTarget.click();
-          this.divHiddenTarget.classList.toggle("hidden");
-          this.divToHideTarget.classList.toggle("hidden");
-          setTimeout(() => {
-            this.elementLeftTarget.classList.add("is-active");
-            setTimeout(() => {
-              window.location = this.finalUrlSecondValue;
-            }, 300);
-          }, 3000);
-        }, 5000);
+        this.secondRoundTemplate(this.finalUrlSecondValue);
       } else {
-        setTimeout(() => {
-          this.buttonTarget.click();
-          this.divHiddenTarget.classList.toggle("hidden");
-          this.divToHideTarget.classList.toggle("hidden");
-          setTimeout(() => {
-            this.elementLeftTarget.classList.add("is-active");
-            setTimeout(() => {
-              window.location = this.questionsArrayValue[currentPage + 1];
-            }, 300);
-          }, 3000);
-        }, 5000);
+        this.secondRoundTemplate(this.questionsArrayValue[currentPage + 1]);
       }
     }
+  }
+
+  firstRoundTemplate(url) {
+    setTimeout(() => {
+      this.elementLeftTarget.classList.add("is-active");
+      setTimeout(() => {
+        this.buttonTarget.click();
+        window.location = url;
+      }, 300);
+    }, 5000);
+  }
+
+  secondRoundTemplate(url) {
+    setTimeout(() => {
+      this.buttonTarget.click();
+      this.titleTarget.innerHTML = "Let's hope you were right...";
+      this.divHiddenTarget.classList.remove("hidden");
+      this.divHiddenTarget.classList.add(
+        "animate__animated",
+        "animate__zoomIn"
+      );
+      this.divToHideTarget.classList.add(
+        "animate__animated",
+        "animate__fadeOutDown"
+      );
+      setTimeout(() => {
+        this.elementLeftTarget.classList.add("is-active");
+        setTimeout(() => {
+          window.location = url;
+        }, 300);
+      }, 4000);
+    }, 5000);
   }
 }
