@@ -49,7 +49,17 @@ export default class extends Controller {
   secondRoundTemplate(url) {
     setTimeout(() => {
       this.buttonTarget.click();
-      this.titleTarget.innerHTML = "Let's hope you were right...";
+
+      const possibleTitles = [
+        "Let's hope you were right...",
+        "The moment of truth!",
+        "Who expected that?",
+        "And the answer is...",
+        "That was clear",
+      ];
+      this.titleTarget.innerHTML =
+        possibleTitles[Math.floor(Math.random() * possibleTitles.length)];
+
       this.divHiddenTarget.classList.remove("hidden");
       this.divHiddenTarget.classList.add(
         "animate__animated",
