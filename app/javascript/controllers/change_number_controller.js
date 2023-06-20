@@ -5,17 +5,16 @@ export default class extends Controller {
   static targets = ["number"];
 
   connect() {
-    setInterval(() => {
-      this.changingNumber();
+    const number = this.numberTarget;
+    const changingNumber = function () {
+      if (number.innerHTML === "0") {
+        clearInterval(timer);
+      } else {
+        number.innerHTML -= 1;
+      }
+    };
+    const timer = setInterval(() => {
+      changingNumber();
     }, 1000);
-
-  }
-  changingNumber() {
-    if (this.numberTarget.innerHTML === 0) {
-      clearInterval(timer);
-    } else {
-      this.numberTarget.innerHTML -= 1;
-
-    }
   }
 }
