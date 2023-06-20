@@ -78,7 +78,7 @@ class RoomsController < ApplicationController
     else
       if @room.room_questions[0].round == 1
         flash[:alert] = "Only the host can start the round!"
-        redirect_to room_creating_round_path
+        redirect_to room_new_round_path
       else
         redirect_to room_room_question_path(@room, @room_questions.first)
       end

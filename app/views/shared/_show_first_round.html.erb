@@ -19,11 +19,11 @@
               label_method: :content,
               legend_tag: false,
               as: :radio_buttons,
-              input_html: { class: 'checkbox-style', data: { answer_select_target: "button", action: "change->answer-select#select" } },
+              input_html: { class: "checkbox-style", data: { answer_select_target: "button", action: "change->answer-select#select" } },
               class: "form-check" %>
           </div>
           <div>
-            <%= f.button :submit, class: 'white display-none', remote: true, data: { change_page_target: "button", round: 1 } %>
+            <%= f.button :submit, class: "white display-none", remote: true, data: { change_page_target: "button", round: 1 } %>
           </div>
         <% end %>
       </div>

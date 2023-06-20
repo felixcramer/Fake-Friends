@@ -23,7 +23,7 @@ export default class extends Controller {
         setTimeout(() => {
           this.buttonTarget.click();
           // Using the JS dataset attribute to know in which round
-          // we are
+          // we currently are
           window.location =
             this.buttonTarget.dataset.round === "1"
               ? this.finalUrlFirstValue

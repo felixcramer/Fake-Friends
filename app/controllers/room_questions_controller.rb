@@ -50,24 +50,27 @@ class RoomQuestionsController < ApplicationController
 
     if @room_question.round == 2
       @right_answer = Answer.where(room_question_id: @room_question)
-      @picked_users = []
-      @array_of_ids = params[:room_question][:answer_ids]
-      @array_of_ids.delete_at(0)
-      @array_of_ids.each do |number|
-        user_from_form = User.find(number)
-        @picked_users << user_from_form
+      @selected_users = []
+
+      # Targeting the user input for the form
+      @user_input_answer_ids = params[:room_question][:answer_ids]
+      @user_input_answer_ids.delete_at(0)
+      @user_input_answer_ids.each do |id|
+        user_from_form = User.find(id)
+        @selected_users << user_from_form
       end
-      @room_user = RoomUser.find_by(room_id: @room, user_id: current_user)
-      @picked_users.each do |u|
-        user_answers_in_room = UserAnswer.where(room_id: @room, user_id: u)
+      @current_user_as_room_user = RoomUser.find_by(room_id: @room, user_id: current_user)
+      @selected_users.each do |user|
+        # Finding all user answers in the room
+        user_answers_in_room = UserAnswer.where(room_id: @room, user_id: user)
         user_answers_in_room.each do |user_answer|
           if user_answer.answer.question == @room_question.question
             if user_answer.answer.content == @right_answer.first.content
-              @room_user.counter += 1
-              @room_user.save
+              @current_user_as_room_user.counter += 1
+              @current_user_as_room_user.save
             else
-              @room_user.counter -= 1
-              @room_user.save
+              @current_user_as_room_user.counter -= 1
+              @current_user_as_room_user.save
             end
           end
         end
