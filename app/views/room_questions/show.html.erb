@@ -4,8 +4,8 @@
 
 <% if @room_question.round == 1  %>
   <div data-controller="change-page"
-        data-change-page-question-count-value="<%=@array_of_urls%>"
-        data-change-page-url-value="<%= room_new_round_path%>">
+        data-change-page-questions-array-value="<%=@array_of_urls%>"
+        data-change-page-final-url-first-value="<%= room_new_round_path%>">
 
     <div class="transition transition-1"
         data-change-page-target="elementLeft">
@@ -16,7 +16,7 @@
     <div class="ff-container">
 
       <div class="timer-navbar">
-        <div class="timer animate__animated animate__pulse animate__infinite	infinite">
+        <div class="timer animate__animated animate__pulse animate__infinite infinite">
           <p data-controller="change-number"
             data-change-number-target="number">10
           </p>
@@ -38,7 +38,7 @@
             </div>
 
             <div>
-              <%= f.button :submit, class: 'white display-none', remote: true, data: { change_page_target: "button" } %>
+              <%= f.button :submit, class: 'white display-none', remote: true, data: { change_page_target: "button", round: 1 } %>
             </div>
           <% end %>
         </div>
@@ -48,10 +48,10 @@
 <% end %>
 
 <% if @room_question.round == 2  %>
-  <div data-controller="change-page-second"
-      data-change-page-second-question-count-value="<%=@array_of_urls%>"
-      data-change-page-second-url-value="<%= room_ranking_room_path %>">
-    <div class="transition transition-1" data-change-page-second-target="elementLeft"></div>
+  <div data-controller="change-page"
+      data-change-page-questions-array-value="<%=@array_of_urls%>"
+      data-change-page-final-url-second-value="<%= room_ranking_room_path %>">
+    <div class="transition transition-1" data-change-page-target="elementLeft"></div>
 
     <h2 class="ff-title-round-2 mt-5 mx-3">Whose <%= @room_question.question.key_words %> <%= @right_answer.first.plural ? "are" : "is"%> <%= @right_answer.first.content.downcase %>?</h2>
 
@@ -79,7 +79,7 @@
               input_html: { class: "checkbox-second", multiple: true, checked: false, data: { add_username_target: "photo" } },
               label_method: lambda { |user| cl_image_tag(user.photo.key, :aspect_ratio=>"1.0", :height=>300, :width=>300, crop: "fill", gravity: "faces").html_safe },
               value_method: :id %>
-          <%= f.button :submit, class: 'white display-none', remote: true, data: { change_page_second_target: "button" } %>
+          <%= f.button :submit, class: 'white display-none', remote: true, data: { change_page_target: "button", round: 2 } %>
         <% end %>
       </div>
     </div>

@@ -3,11 +3,10 @@ class RoomQuestionsController < ApplicationController
     @users = User.all
     @room = Room.find(params[:room_id])
     @room_question = RoomQuestion.find(params[:id])
+
+    # Data to be transfered to the change-page Stimulus controller
     @room_questions = @room_question.room.room_questions
-    @array_of_urls = []
-    @room_questions.each do |question|
-      @array_of_urls << room_room_question_path(question.room, question)
-    end
+    @array_of_urls = @room_questions.map { |question| questions = room_room_question_path(question.room, question) }
 
     if @room_question.round == 1
       @answer = Answer.new

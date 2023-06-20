@@ -4,21 +4,30 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   static targets = ["button", "elementLeft"];
   static values = {
-    questionCount: Array,
-    url: String,
+    // Array containing all urls of the room associated
+    // with the room_questions
+    questionsArray: Array,
+    // Final urls to break the loop, first goes to new_round
+    // and second to ranking
+    finalUrlFirst: String,
+    finalUrlSecond: String,
   };
   connect() {
-    const length = this.questionCountValue.length;
-    let currentPage = this.questionCountValue.indexOf(
+    let currentPage = this.questionsArrayValue.indexOf(
       window.location.pathname,
       0
     );
-    if (currentPage + 1 === length) {
+    if (currentPage + 1 === this.questionsArrayValue.length) {
       setTimeout(() => {
         this.elementLeftTarget.classList.add("is-active");
         setTimeout(() => {
           this.buttonTarget.click();
-          window.location = this.urlValue;
+          // Using the JS dataset attribute to know in which round
+          // we are
+          window.location =
+            this.buttonTarget.dataset.round === "1"
+              ? this.finalUrlFirstValue
+              : this.finalUrlSecondValue;
         }, 300);
       }, 10000);
     } else {
@@ -26,7 +35,7 @@ export default class extends Controller {
         this.elementLeftTarget.classList.add("is-active");
         setTimeout(() => {
           this.buttonTarget.click();
-          window.location = this.questionCountValue[currentPage + 1];
+          window.location = this.questionsArrayValue[currentPage + 1];
         }, 300);
       }, 10000);
     }

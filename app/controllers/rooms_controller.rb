@@ -19,8 +19,12 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     @room.user = current_user
+    # Generating four digit random code to be used as password for
+    # the room
     @room.room_code = 4.times.map{rand(10)}.join
     if @room.save
+      # Pulling the hard-coded questions from the seeds file and storing
+      # them in the room we just created as "room_questions" (joining table)
       @questions = Question.where(round: 1)
       @questions.each do |question|
         @room_question = RoomQuestion.new
@@ -32,6 +36,8 @@ class RoomsController < ApplicationController
       @room_user = RoomUser.new
       @room_user.room = @room
       @room_user.user = current_user
+      # Setting the counter as 10 for users not to have negative points
+      # at the end of the game
       @room_user.counter = 10
       @room_user.save
       redirect_to room_path(@room)
