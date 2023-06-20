@@ -29,7 +29,7 @@ export default class extends Controller {
               ? this.finalUrlFirstValue
               : this.finalUrlSecondValue;
         }, 300);
-      }, 10000);
+      }, 5000);
     } else {
       setTimeout(() => {
         this.elementLeftTarget.classList.add("is-active");
@@ -37,7 +37,7 @@ export default class extends Controller {
           this.buttonTarget.click();
           window.location = this.questionsArrayValue[currentPage + 1];
         }, 300);
-      }, 10000);
+      }, 5000);
     }
   }
 }

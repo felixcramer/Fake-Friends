@@ -10,7 +10,7 @@
 
   <div class="ff-container">
     <div data-controller="add-username"
-        data-add-username-usernames-value="<%=@array_of_usernames%>">
+        data-add-username-usernames-value="<%=@user_as_answers_usernames%>">
       <%= simple_form_for [@room, @room_question] do |f| %>
         <%= f.association :answers,
             as: :check_boxes,
@@ -18,7 +18,7 @@
             collection_wrapper_class: 'ff-grid-round-2',
             item_wrapper_tag: :div,
             item_wrapper_class: "image-select",
-            collection: @right_collection,
+            collection: @user_as_answers,
             legend_tag: false,
             input_html: { class: "checkbox-second", multiple: true, checked: false, data: { add_username_target: "photo" } },
             label_method: lambda { |user| cl_image_tag(user.photo.key, :aspect_ratio=>"1.0", :height=>300, :width=>300, crop: "fill", gravity: "faces").html_safe },

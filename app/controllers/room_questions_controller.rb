@@ -4,7 +4,7 @@ class RoomQuestionsController < ApplicationController
     @room = Room.find(params[:room_id])
     @room_question = RoomQuestion.find(params[:id])
 
-    # Data to be transfered to the change-page Stimulus controller
+    # Data to be transfered to the change_page Stimulus controller
     @room_questions = @room_question.room.room_questions
     @array_of_urls = @room_questions.map { |question| questions = room_room_question_path(question.room, question) }
 
@@ -13,19 +13,22 @@ class RoomQuestionsController < ApplicationController
     end
 
     if @room_question.round == 2
+      # There is only one answer stored in the room_question and is
+      # the answer of a random user of the same question on the first round
       @right_answer = Answer.where(room_question_id: @room_question)
-      @user_answers = UserAnswer.where(room_id: @room)
-      @room_users = RoomUser.where(room_id: @room)
-      @right_collection = []
-        @room_users.each do |user|
-          if user.user != current_user
-            @right_collection << user.user
-          end
+
+      # All users answers on the room for that question, this need is for
+      # creating the simple form with users as answers for the second round
+      @user_as_answers = []
+      RoomUser.where(room_id: @room).each do |room_user|
+        # The user shouldn't see himself appearing on the form
+        if room_user.user != current_user
+          @user_as_answers << room_user.user
         end
-      @array_of_usernames = []
-      @right_collection.each do |user|
-        @array_of_usernames << user.username
       end
+
+      # Data to be transfered to the add_username Stimulus controller
+      @user_as_answers_usernames = @user_as_answers.map { |user| user.username }
     end
   end
 
