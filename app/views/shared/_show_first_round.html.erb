@@ -1,0 +1,32 @@
+<div data-controller="change-page"
+  data-change-page-questions-array-value="<%=@array_of_urls%>"
+  data-change-page-final-url-first-value="<%= room_new_round_path%>">
+
+  <div class="transition transition-1" data-change-page-target="elementLeft"></div>
+
+  <h2 class="ff-title-round-2 mt-5 mx-3"><%= @room_question.question.content %></h2>
+
+  <div class="ff-container">
+
+    <%= render "shared/timer_navbar" %>
+
+    <div class="ff-flex-round-1">
+      <div class="ranking-card">
+        <%= simple_form_for [@room, @room_question] do |f| %>
+          <div data-controller="answer-select">
+            <%= f.association :answers,
+              collection: @room_question.question.answers,
+              label_method: :content,
+              legend_tag: false,
+              as: :radio_buttons,
+              input_html: { class: 'checkbox-style', data: { answer_select_target: "button", action: "change->answer-select#select" } },
+              class: "form-check" %>
+          </div>
+          <div>
+            <%= f.button :submit, class: 'white display-none', remote: true, data: { change_page_target: "button", round: 1 } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
