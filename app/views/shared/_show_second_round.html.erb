@@ -8,13 +8,15 @@
 
   <%= render "shared/timer_navbar" %>
 
-  <%# Hidden container for displaying the user with the right answer %>
-  <div class="ff-container hidden" data-change-page-target="divHidden">
+  <%# Hidden container for displaying the user with the right answer through JS%>
+  <div class="ff-container" data-change-page-target="divHidden">
     <div class="ff-grid-round-2">
       <% @users_with_right_answer.each do |user|%>
-        <div class="image-select">
-        <span class="image-select-username"><%= user.username %></span>
-        <%= cl_image_tag(user.photo.key, :aspect_ratio=>"1.0", :height=>300, :width=>300, crop: "fill", gravity: "faces", class: "right-answer") %>
+        <div class="right-answer-wrapper">
+          <div class="right-answer-text">
+            <p><span class="icon">&#10003;</span><%= user.username %></p>
+          </div>
+          <%= cl_image_tag(user.photo.key, :aspect_ratio=>"1.0", :height=>300, :width=>300, crop: "fill", gravity: "faces", class: "right-answer") %>
         </div>
       <% end %>
     </div>
