@@ -27,3 +27,46 @@
 .transition-2.is-active {
   right: 0px;
 }
+
+.transition-3 {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  bottom: 0;
+  z-index: 101;
+  transition: 0.5s ease-out;
+}
+
+.transition-3.is-active {
+  right: 0px;
+  transition: 0.5s ease-in;
+}
+
+.home {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transition: all 0.3s ease-in;
+}
+
+.hide-home {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.transition-4 {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  bottom: 0;
+  z-index: 101;
+  background-color: #070415;
+  transition: 0.4s ease-out;
+}
+
+.transition-4.is-active {
+  left: 0px;
+}

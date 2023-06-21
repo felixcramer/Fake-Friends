@@ -20,16 +20,16 @@
 }
 
 .ff-home-navbar {
+  display: flex;
   padding: 25px;
+  justify-content: flex-end;
 }
 
 .navbar-icon {
-  text-align: center;
-  font-size: 20px;
-  padding: 6px;
-  float: right;
-  color: darkgoldenrod;
-  border: solid 2px #fff;
-  background-color: #fff;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
 }

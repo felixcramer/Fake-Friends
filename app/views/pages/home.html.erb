@@ -2,29 +2,43 @@
 <div id='stars2'></div>
 <div id='stars3'></div>
 
-<div class="ff-home-navbar" data-controller="transition">
-  <div class="transition transition-1"  data-transition-target="elementLeft"></div>
-  <%= link_to rooms_path, data: { action: "click->transition#pressLinkLeft" } do %>
-  <i class="fa-solid fa-trophy navbar-icon"></i>
-<% end %>
-</div>
-
-
-
-<div class="home-body" data-controller="transition">
-  <div class="transition transition-1"  data-transition-target="elementLeft"></div>
-  <h1 class="ff-title">FakeFriends</h1>
-  <div class="flex-btn-landing">
-    <%= link_to join_room_path, class: "ff-btn-red", data: { action: "click->transition#pressLinkLeft" } do %>
-      <p>Join a game</p>
-    <% end %>
-    <%= link_to new_room_path, class: "ff-btn-white", data: { action: "click->transition#pressLinkLeft" } do %>
-      <p>Host a game</p>
-    <% end %>
-    <%= link_to about_path, class: "link-how-to-play", data: { action: "click->transition#pressLinkLeft" } do %>
-      <p>How to play</p>
-    <% end %>
+<div data-controller="transition">
+  <div class="home" data-transition-target="home">
+    <div class="transition transition-1" data-transition-target="elementLeft"></div>
+    <div class="ff-home-navbar">
+      <div class="navbar-icon"><i class="fas fa-bars" data-action="click->transition#pressUserMenu"></i></div>
+    </div>
+    <div class="home-body">
+      <h1 class="ff-title">FakeFriends</h1>
+      <div class="flex-btn-landing">
+        <%= link_to join_room_path, class: "ff-btn-red", data: { action: "click->transition#pressLinkLeft" } do %>
+          <p>Join a game</p>
+        <% end %>
+        <%= link_to new_room_path, class: "ff-btn-white", data: { action: "click->transition#pressLinkLeft" } do %>
+          <p>Host a game</p>
+        <% end %>
+        <%= link_to about_path, class: "link-how-to-play", data: { action: "click->transition#pressLinkLeft" } do %>
+          <p>How to play</p>
+        <% end %>
+        </div>
     </div>
   </div>
+
+  <%# Hidden view for showing the user-menu using JS and CSS %>
+  <div class="transition transition-3" data-transition-target="userMenu">
+  <div class="transition transition-4" data-controller="transition" data-transition-target="element"></div>
+    <div class="ff-home-navbar">
+      <div class="navbar-icon"><i class="fa-solid fa-xmark" data-action="click->transition#pressUserMenu"></i></div>
+    </div>
+    <div class="home-body">
+      <div class="user-menu">
+        <%= link_to root_path, class: "link-how-to-play", data: { action: "click->transition#pressLinkLeft" } do %>
+        <p>Your profile</p>
+        <% end %>
+        <%= link_to rooms_path, class: "link-how-to-play", data: { action: "click->transition#pressLinkUserMenu" } do %>
+        <p>Your games</p>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

@@ -16,9 +16,6 @@ application.register("change-number", ChangeNumberController);
 import ChangePageController from "./change_page_controller";
 application.register("change-page", ChangePageController);
 
-import HelloController from "./hello_controller";
-application.register("hello", HelloController);
-
 import RankingController from "./ranking_controller";
 application.register("ranking", RankingController);
 
