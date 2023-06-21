@@ -2,13 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="transition"
 export default class extends Controller {
-  static targets = [
-    "elementLeft",
-    "elementRight",
-    "userMenu",
-    "home",
-    "element",
-  ];
+  static targets = ["elementLeft", "elementRight", "userMenu", "home"];
 
   connect() {}
 

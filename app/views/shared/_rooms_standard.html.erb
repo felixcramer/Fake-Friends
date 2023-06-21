@@ -1,0 +1,23 @@
+<div class="rooms-card">
+  <div class="card-header header-standard">
+    <h3><%= room.name %></h3>
+  </div>
+  <div class="card-content">
+    <p>No harm done. You had a score of <%= user.counter %> points.</p>
+    <div class="expandable-section" data-controller="expand-card">
+      <button class="expand-button animate__animated animate__pulse animate__infinite	infinite" data-expand-card-target="buttonDown"><i class="fa-solid fa-arrow-down" data-action="click->expand-card#expandCard"></i></button>
+      <button class="expand-button animate__animated animate__pulse animate__infinite	infinite hidden" data-expand-card-target="buttonUp"><i class="fa-solid fa-arrow-up" data-action="click->expand-card#expandCard"></i></button>
+      <div class="expanded-content hidden" data-expand-card-target="expandableContent">
+        <div class="card-date">
+          <p>Played on <%= room.created_at.to_fs(:long)[0...-6] %> with:</p>
+        <% room_users.each do |room_user| %>
+          <% if !room_user.nil? %>
+            <p class="card-details"><%= room_user.user.username %> (<%= room_user.counter %> points)</p>
+          <% end %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

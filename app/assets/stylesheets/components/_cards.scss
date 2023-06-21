@@ -14,7 +14,9 @@
   align-items: center;
 }
 
-.your-games-card {
+// Rooms card
+
+.rooms-card {
   background: #fff;
   text-align: center;
   border-radius: 8px;
@@ -51,4 +53,29 @@
 .card-date {
   font-style: italic;
   font-size: 14px;
+}
+
+.expandable-section {
+  margin-top: 10px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.expand-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.expand-button i {
+  font-size: 20px;
+}
+
+.expanded-content {
+  margin-top: 10px;
+}
+
+.card-details {
+  font-style: normal;
+  font-size: 16px;
 }

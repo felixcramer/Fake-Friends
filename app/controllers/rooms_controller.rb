@@ -1,11 +1,8 @@
 class RoomsController < ApplicationController
   def index
     @user = current_user
-    @user_as_room_users = RoomUser.where(user_id: @user)
-    @rooms_where_user_played = []
-    @user_as_room_users.each do |user|
-      @rooms_where_user_played << user.room
-    end
+    user_as_room_user = RoomUser.where(user_id: @user)
+    @all_rooms_where_user_played = user_as_room_user.map { |user| user.room }
   end
 
   def show
