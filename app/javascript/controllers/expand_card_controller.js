@@ -10,5 +10,9 @@ export default class extends Controller {
     this.buttonDownTarget.classList.toggle("hidden");
     this.buttonUpTarget.classList.toggle("hidden");
     this.expandableContentTarget.classList.toggle("hidden");
+    this.expandableContentTarget.classList.add(
+      "animate__animated",
+      "animate__fadeInDown"
+    );
   }
 }

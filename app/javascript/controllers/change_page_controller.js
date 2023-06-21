@@ -43,7 +43,7 @@ export default class extends Controller {
         this.buttonTarget.click();
         window.location = url;
       }, 300);
-    }, 5000);
+    }, 10000);
   }
 
   secondRoundTemplate(url) {
@@ -74,7 +74,7 @@ export default class extends Controller {
         setTimeout(() => {
           window.location = url;
         }, 300);
-      }, 4000);
-    }, 5000);
+      }, 5000);
+    }, 10000);
   }
 }

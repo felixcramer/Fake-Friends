@@ -15,17 +15,19 @@ User.destroy_all
 Room.destroy_all
 Question.destroy_all
 
-puts "Creating four fake users..."
-4.times do
-  user = User.new(
-    username: Faker::Name.name.to_s,
-    email: Faker::Internet.email.to_s,
-    password: Faker::Internet.password.to_s
-  )
-  file = URI.open("https://res.cloudinary.com/dzotx5j9x/image/upload/v1678275332/development/qk3v9cmx5y49f391uh2jwrn26sbb.jpg")
-  user.photo.attach(io: file, filename: "file_name")
-  user.save!
-end
+puts "Creating three users for development..."
+
+# user1 = User.new(username: "Pablo", email: "pablo@pablo.com", password: "123456")
+# user1.photo.attach(io: "app/assets/images/Pablo_Escobar_Mug.jpeg", filename: "file_name")
+# user1.save!
+
+# user2 = User.new(username: "Homer", email: "homer@homer.com", password: "123456")
+# user2.photo.attach(io: "app/assets/images/Homer_Simpson.webp", filename: "file_name")
+# user2.save!
+
+# user3 = User.new(username: "Harry", email: "harry@harry.com", password: "123456")
+# user3.photo.attach(io: "app/assets/images/Harry_Potter.jpeg", filename: "file_name")
+# user3.save!
 
 puts "#{User.count} users were created."
 puts "..."

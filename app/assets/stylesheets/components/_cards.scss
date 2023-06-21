@@ -22,6 +22,8 @@
   border-radius: 8px;
   overflow: hidden;
   transition: all 0.1ms ease-in-out;
+  position: relative;
+  z-index: 10;
 
   p {
     color: #212529;
@@ -36,7 +38,6 @@
   font-size: 13px;
   padding: 16px 0;
   color: #fff;
-  clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
 }
 
 .header-standard {
@@ -68,7 +69,7 @@
 }
 
 .expand-button i {
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .expanded-content {

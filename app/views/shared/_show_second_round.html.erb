@@ -9,7 +9,7 @@
   <%= render "shared/timer_navbar" %>
 
   <%# Hidden container for displaying the user with the right answer through JS%>
-  <div class="ff-container" data-change-page-target="divHidden">
+  <div class="ff-container hidden" data-change-page-target="divHidden">
     <div class="ff-grid-round-2">
       <% @users_with_right_answer.each do |user|%>
         <div class="right-answer-wrapper">
